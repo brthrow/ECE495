@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+
+          <SubSystem>
+    <Name>Scope 1</Name>
+    <xPCName>new_analog_loopback_q4/Scope 1</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Scope 2</Name>
+    <xPCName>new_analog_loopback_q4/Scope 2</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Scope 3</Name>
+    <xPCName>new_analog_loopback_q4/Scope 3</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Scope 4</Name>
+    <xPCName>new_analog_loopback_q4/Scope 4</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Scope 5</Name>
+    <xPCName>new_analog_loopback_q4/Scope 5</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+
+      
+
+
+
+
+
+
+
+
+
+ 
+            <block>
+            <blkName>Q4 AD2</blkName>
+            <xpcblkName>Q4 AD2</xpcblkName>
+            <SLblockPath>new_analog_loopback_q4/Q4 AD2</SLblockPath>
+            <isSrc>[1 0 2]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 2]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 2]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Q4 DA </blkName>
+            <xpcblkName>Q4 DA </xpcblkName>
+            <SLblockPath>new_analog_loopback_q4/Q4 DA </SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Q4 DO </blkName>
+            <xpcblkName>Q4 DO </xpcblkName>
+            <SLblockPath>new_analog_loopback_q4/Q4 DO </SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Q4 Enc </blkName>
+            <xpcblkName>Q4 Enc </xpcblkName>
+            <SLblockPath>new_analog_loopback_q4/Q4 Enc </SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P10</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P11</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P12</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Signal
+Generator</blkName>
+            <xpcblkName>Signal Generator</xpcblkName>
+            <SLblockPath>new_analog_loopback_q4/Signal Generator</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Amplitude</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Sine Wave</blkName>
+            <xpcblkName>Sine Wave</xpcblkName>
+            <SLblockPath>new_analog_loopback_q4/Sine Wave</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Amplitude</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>Bias</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>Phase</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Q4 AD2/p1</sigName>
+              <xpcsigName>Q4 AD2/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Q4 AD2/p2</sigName>
+              <xpcsigName>Q4 AD2/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Q4 Enc </sigName>
+              <xpcsigName>Q4 Enc </xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Signal
+Generator</sigName>
+              <xpcsigName>Signal Generator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sine Wave</sigName>
+              <xpcsigName>Sine Wave</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+<block>
+   <blkName>Model Parameters</blkName>
+   <xpcblkName>Model Parameters</xpcblkName>
+   <SLblockPath>. </SLblockPath>
+   <isSrc>[0 1 1]</isSrc>
+              
+   <parameter>
+      <paramName>frequency</paramName>
+          <dim>[1,1]</dim>
+   </parameter>
+              
+   <parameter>
+      <paramName>rad</paramName>
+          <dim>[1,1]</dim>
+   </parameter>
+</block>
+</Root>

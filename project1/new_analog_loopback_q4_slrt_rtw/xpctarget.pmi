@@ -1,0 +1,14 @@
+#include "new_analog_loopback_q4.pt"
+
+
+const xpc_ParamMappingInfo  xpcparamsMMI[] =
+  {
+    {
+      {new_analog_loopback_q4_PT},
+      "new_analog_loopback_q4",
+      "",
+      "new_analog_loopback_q4",
+      0,
+      40,
+    },
+  };

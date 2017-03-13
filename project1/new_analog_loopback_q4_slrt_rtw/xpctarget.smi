@@ -1,0 +1,17 @@
+#include "new_analog_loopback_q4.bio"
+#include "new_analog_loopback_q4.lbl"
+#include "new_analog_loopback_q4.sid"
+
+
+const xpc_SigMappingInfo xpcMMI[] =
+  {
+    {
+      {new_analog_loopback_q4_BIO},
+      {new_analog_loopback_q4_SID},
+      {new_analog_loopback_q4_LBL},
+      "",
+      "new_analog_loopback_q4",
+      0,
+      4,
+    },
+  };
