@@ -76,7 +76,7 @@ for b=1:1:length(metric)
     green = table(x, y, 2);
     blue = table(x, y, 3);
     c = getColor(red, green, blue);
-    fprintf('The color of the ball with a metric value %s is %s\n', metricString, c);
+    fprintf('The color of the ball with a metric value %s is %s, and it''s center is at (%d, %d)\n', metricString, c, round(center(b,1)), round(center(b,2)));
 end
 fprintf('The number of pool balls in this picture is %d\n\n',length(center));
 toc
