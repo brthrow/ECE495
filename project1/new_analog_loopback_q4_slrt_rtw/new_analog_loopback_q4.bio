@@ -16,6 +16,9 @@ const SortedBlockIOSignals new_analog_loopback_q4_BIO[] =
       4,4,1
     },
     {
-      -1, -1,5
+      5,5,1
+    },
+    {
+      -1, -1,6
     }
   };

@@ -1,6 +1,6 @@
 const SortedBlockParameters sortedPT[] = {
-      39,
       40,
+      41,
        0,
        1,
        2,
@@ -25,10 +25,10 @@ const SortedBlockParameters sortedPT[] = {
       21,
       22,
       23,
-      32,
+      24,
       33,
       34,
-      24,
+      35,
       25,
       26,
       27,
@@ -36,9 +36,10 @@ const SortedBlockParameters sortedPT[] = {
       29,
       30,
       31,
-      35,
+      32,
       36,
       37,
       38,
+      39,
       -1
 };

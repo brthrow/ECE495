@@ -5,7 +5,7 @@
  *
  * Model version              : 1.11
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon Mar 13 14:45:39 2017
+ * C source code generated on : Mon Mar 13 15:06:20 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -825,8 +825,9 @@ typedef struct {
   real_T Q4AD2_o1;                     /* '<Root>/Q4 AD2' */
   real_T Q4AD2_o2;                     /* '<Root>/Q4 AD2' */
   real_T Q4Enc;                        /* '<Root>/Q4 Enc ' */
-  real_T SineWave;                     /* '<Root>/Sine Wave' */
+  real_T Constant;                     /* '<Root>/Constant' */
   real_T SignalGenerator;              /* '<Root>/Signal Generator' */
+  real_T SineWave;                     /* '<Root>/Sine Wave' */
 } B_new_analog_loopback_q4_T;
 
 /* Block states (auto storage) for system '<Root>' */
@@ -994,14 +995,8 @@ struct P_new_analog_loopback_q4_T_ {
   real_T Q4Enc_P12;                    /* Expression: pciSlot
                                         * Referenced by: '<Root>/Q4 Enc '
                                         */
-  real_T SineWave_Amp;                 /* Expression: 1
-                                        * Referenced by: '<Root>/Sine Wave'
-                                        */
-  real_T SineWave_Bias;                /* Expression: 0
-                                        * Referenced by: '<Root>/Sine Wave'
-                                        */
-  real_T SineWave_Phase;               /* Expression: 0
-                                        * Referenced by: '<Root>/Sine Wave'
+  real_T Constant_Value;               /* Expression: 2
+                                        * Referenced by: '<Root>/Constant'
                                         */
   real_T Q4DA_P1_Size[2];              /* Computed Parameter: Q4DA_P1_Size
                                         * Referenced by: '<Root>/Q4 DA '
@@ -1107,6 +1102,15 @@ struct P_new_analog_loopback_q4_T_ {
                                         */
   real_T Q4DO_P8;                      /* Expression: pciSlot
                                         * Referenced by: '<Root>/Q4 DO '
+                                        */
+  real_T SineWave_Amp;                 /* Expression: 1
+                                        * Referenced by: '<Root>/Sine Wave'
+                                        */
+  real_T SineWave_Bias;                /* Expression: 0
+                                        * Referenced by: '<Root>/Sine Wave'
+                                        */
+  real_T SineWave_Phase;               /* Expression: 0
+                                        * Referenced by: '<Root>/Sine Wave'
                                         */
 };
 

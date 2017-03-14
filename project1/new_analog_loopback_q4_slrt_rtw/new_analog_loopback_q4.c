@@ -5,7 +5,7 @@
  *
  * Model version              : 1.11
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon Mar 13 14:45:39 2017
+ * C source code generated on : Mon Mar 13 15:06:20 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -98,12 +98,8 @@ static void new_analog_loopback_q4_output0(void) /* Sample time: [0.0s, 0.0s] */
   /* ok to acquire for <S4>/S-Function */
   new_analog_loopback_q4_DW.SFunction_IWORK_k.AcquireOK = 1;
 
-  /* Sin: '<Root>/Sine Wave' */
-  new_analog_loopback_q4_B.SineWave = sin(new_analog_loopback_q4_P.rad *
-    new_analog_loopback_q4_M->Timing.t[0] +
-    new_analog_loopback_q4_P.SineWave_Phase) *
-    new_analog_loopback_q4_P.SineWave_Amp +
-    new_analog_loopback_q4_P.SineWave_Bias;
+  /* Constant: '<Root>/Constant' */
+  new_analog_loopback_q4_B.Constant = new_analog_loopback_q4_P.Constant_Value;
 
   /* Level2 S-Function Block: '<Root>/Q4 DA ' (daquanserq8) */
   {
@@ -129,6 +125,13 @@ static void new_analog_loopback_q4_output0(void) /* Sample time: [0.0s, 0.0s] */
     SimStruct *rts = new_analog_loopback_q4_M->childSfunctions[3];
     sfcnOutputs(rts, 0);
   }
+
+  /* Sin: '<Root>/Sine Wave' */
+  new_analog_loopback_q4_B.SineWave = sin(new_analog_loopback_q4_P.rad *
+    new_analog_loopback_q4_M->Timing.t[0] +
+    new_analog_loopback_q4_P.SineWave_Phase) *
+    new_analog_loopback_q4_P.SineWave_Amp +
+    new_analog_loopback_q4_P.SineWave_Bias;
 }
 
 /* Model update function for TID0 */
@@ -398,6 +401,9 @@ static void new_analog_loopback_q4_initialize(void)
       rl32eRestartAcquisition(5);
     }
   }
+
+  /* Start for Constant: '<Root>/Constant' */
+  new_analog_loopback_q4_B.Constant = new_analog_loopback_q4_P.Constant_Value;
 
   /* Level2 S-Function Block: '<Root>/Q4 DA ' (daquanserq8) */
   {
@@ -1096,7 +1102,7 @@ RT_MODEL_new_analog_loopback_q4_T *new_analog_loopback_q4(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &new_analog_loopback_q4_M->NonInlinedSFcns.Sfcn2.UPtrs0;
-          sfcnUPtrs[0] = &new_analog_loopback_q4_B.SineWave;
+          sfcnUPtrs[0] = &new_analog_loopback_q4_B.Constant;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -1307,9 +1313,9 @@ RT_MODEL_new_analog_loopback_q4_T *new_analog_loopback_q4(void)
   new_analog_loopback_q4_M->Sizes.numU = (0);/* Number of model inputs */
   new_analog_loopback_q4_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   new_analog_loopback_q4_M->Sizes.numSampTimes = (3);/* Number of sample times */
-  new_analog_loopback_q4_M->Sizes.numBlocks = (15);/* Number of blocks */
-  new_analog_loopback_q4_M->Sizes.numBlockIO = (5);/* Number of block outputs */
-  new_analog_loopback_q4_M->Sizes.numBlockPrms = (115);/* Sum of parameter "widths" */
+  new_analog_loopback_q4_M->Sizes.numBlocks = (16);/* Number of blocks */
+  new_analog_loopback_q4_M->Sizes.numBlockIO = (6);/* Number of block outputs */
+  new_analog_loopback_q4_M->Sizes.numBlockPrms = (116);/* Sum of parameter "widths" */
   return new_analog_loopback_q4_M;
 }
 

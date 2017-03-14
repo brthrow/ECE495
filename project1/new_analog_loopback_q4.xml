@@ -70,6 +70,18 @@
 
 
 
+ 
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Constant</xpcblkName>
+            <SLblockPath>new_analog_loopback_q4/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
 
  
             <block>
@@ -323,6 +335,23 @@ Generator</blkName>
     
     
 
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Constant</sigName>
+              <xpcsigName>Constant</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
 
 
     

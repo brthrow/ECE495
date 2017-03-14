@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+
+          <SubSystem>
+    <Name>Scope 1</Name>
+    <xPCName>downloaded_from_web/Scope 1</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Scope 2</Name>
+    <xPCName>downloaded_from_web/Scope 2</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+
+      
+
+
+ 
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Constant</xpcblkName>
+            <SLblockPath>downloaded_from_web/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Pulse
+Generator</blkName>
+            <xpcblkName>Pulse Generator</xpcblkName>
+            <SLblockPath>downloaded_from_web/Pulse Generator</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Amplitude</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>Period</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>PulseWidth</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>PhaseDelay</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+ 
+            <block>
+            <blkName>Q4 AD</blkName>
+            <xpcblkName>Q4 AD</xpcblkName>
+            <SLblockPath>downloaded_from_web/Q4 AD</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Q4 DA </blkName>
+            <xpcblkName>Q4 DA </xpcblkName>
+            <SLblockPath>downloaded_from_web/Q4 DA </SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Q4 Enc </blkName>
+            <xpcblkName>Q4 Enc </xpcblkName>
+            <SLblockPath>downloaded_from_web/Q4 Enc </SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P10</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P11</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P12</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Sine Wave</blkName>
+            <xpcblkName>Sine Wave</xpcblkName>
+            <SLblockPath>downloaded_from_web/Sine Wave</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Amplitude</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>Bias</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>Frequency</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>Phase</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Constant</sigName>
+              <xpcsigName>Constant</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Pulse
+Generator</sigName>
+              <xpcsigName>Pulse Generator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Q4 AD</sigName>
+              <xpcsigName>Q4 AD</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Q4 Enc </sigName>
+              <xpcsigName>Q4 Enc </xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sine Wave</sigName>
+              <xpcsigName>Sine Wave</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+</Root>

@@ -5,7 +5,7 @@
  *
  * Model version              : 1.11
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon Mar 13 14:45:39 2017
+ * C source code generated on : Mon Mar 13 15:06:20 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -23,19 +23,22 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   /* addrMapIndex, sysNum, blockPath,
    * signalName, portNumber, dataTypeIndex, dimIndex, fxpIndex, sTimeIndex
    */
-  { 0, 0, "Q4 AD2/p1",
+  { 0, 0, "Constant",
     "", 0, 0, 0, 0, 0 },
 
-  { 1, 0, "Q4 AD2/p2",
+  { 1, 0, "Q4 AD2/p1",
+    "", 0, 0, 0, 0, 0 },
+
+  { 2, 0, "Q4 AD2/p2",
     "", 1, 0, 0, 0, 0 },
 
-  { 2, 0, "Q4 Enc ",
+  { 3, 0, "Q4 Enc ",
     "", 0, 0, 0, 0, 1 },
 
-  { 3, 0, "Signal Generator",
+  { 4, 0, "Signal Generator",
     "", 0, 0, 0, 0, 2 },
 
-  { 4, 0, "Sine Wave",
+  { 5, 0, "Sine Wave",
     "", 0, 0, 0, 0, 2 },
 
   {
@@ -47,121 +50,124 @@ static const rtwCAPI_BlockParameters rtBlockParameters[] = {
   /* addrMapIndex, blockPath,
    * paramName, dataTypeIndex, dimIndex, fixPtIdx
    */
-  { 5, "Q4 AD2",
-    "P1", 0, 0, 0 },
-
-  { 6, "Q4 AD2",
-    "P2", 0, 1, 0 },
+  { 6, "Constant",
+    "Value", 0, 0, 0 },
 
   { 7, "Q4 AD2",
-    "P3", 0, 1, 0 },
+    "P1", 0, 0, 0 },
 
   { 8, "Q4 AD2",
-    "P5", 0, 0, 0 },
+    "P2", 0, 1, 0 },
 
   { 9, "Q4 AD2",
-    "P6", 0, 0, 0 },
+    "P3", 0, 1, 0 },
 
   { 10, "Q4 AD2",
+    "P5", 0, 0, 0 },
+
+  { 11, "Q4 AD2",
+    "P6", 0, 0, 0 },
+
+  { 12, "Q4 AD2",
     "P7", 0, 0, 0 },
-
-  { 11, "Q4 DA ",
-    "P1", 0, 0, 0 },
-
-  { 12, "Q4 DA ",
-    "P2", 0, 0, 0 },
 
   { 13, "Q4 DA ",
-    "P3", 0, 0, 0 },
+    "P1", 0, 0, 0 },
 
   { 14, "Q4 DA ",
-    "P4", 0, 0, 0 },
+    "P2", 0, 0, 0 },
 
   { 15, "Q4 DA ",
-    "P5", 0, 0, 0 },
+    "P3", 0, 0, 0 },
 
   { 16, "Q4 DA ",
-    "P6", 0, 0, 0 },
+    "P4", 0, 0, 0 },
 
   { 17, "Q4 DA ",
-    "P7", 0, 0, 0 },
+    "P5", 0, 0, 0 },
 
   { 18, "Q4 DA ",
-    "P8", 0, 0, 0 },
+    "P6", 0, 0, 0 },
 
   { 19, "Q4 DA ",
+    "P7", 0, 0, 0 },
+
+  { 20, "Q4 DA ",
+    "P8", 0, 0, 0 },
+
+  { 21, "Q4 DA ",
     "P9", 0, 0, 0 },
-
-  { 20, "Q4 DO ",
-    "P1", 0, 0, 0 },
-
-  { 21, "Q4 DO ",
-    "P2", 0, 0, 0 },
 
   { 22, "Q4 DO ",
-    "P3", 0, 0, 0 },
-
-  { 23, "Q4 DO ",
-    "P4", 0, 0, 0 },
-
-  { 24, "Q4 DO ",
-    "P5", 0, 0, 0 },
-
-  { 25, "Q4 DO ",
-    "P6", 0, 0, 0 },
-
-  { 26, "Q4 DO ",
-    "P7", 0, 0, 0 },
-
-  { 27, "Q4 DO ",
-    "P8", 0, 0, 0 },
-
-  { 28, "Q4 Enc ",
     "P1", 0, 0, 0 },
 
-  { 29, "Q4 Enc ",
+  { 23, "Q4 DO ",
     "P2", 0, 0, 0 },
 
-  { 30, "Q4 Enc ",
+  { 24, "Q4 DO ",
     "P3", 0, 0, 0 },
 
-  { 31, "Q4 Enc ",
+  { 25, "Q4 DO ",
     "P4", 0, 0, 0 },
 
-  { 32, "Q4 Enc ",
+  { 26, "Q4 DO ",
     "P5", 0, 0, 0 },
 
-  { 33, "Q4 Enc ",
+  { 27, "Q4 DO ",
     "P6", 0, 0, 0 },
 
-  { 34, "Q4 Enc ",
+  { 28, "Q4 DO ",
     "P7", 0, 0, 0 },
 
-  { 35, "Q4 Enc ",
+  { 29, "Q4 DO ",
     "P8", 0, 0, 0 },
 
+  { 30, "Q4 Enc ",
+    "P1", 0, 0, 0 },
+
+  { 31, "Q4 Enc ",
+    "P2", 0, 0, 0 },
+
+  { 32, "Q4 Enc ",
+    "P3", 0, 0, 0 },
+
+  { 33, "Q4 Enc ",
+    "P4", 0, 0, 0 },
+
+  { 34, "Q4 Enc ",
+    "P5", 0, 0, 0 },
+
+  { 35, "Q4 Enc ",
+    "P6", 0, 0, 0 },
+
   { 36, "Q4 Enc ",
-    "P9", 0, 0, 0 },
+    "P7", 0, 0, 0 },
 
   { 37, "Q4 Enc ",
-    "P10", 0, 0, 0 },
+    "P8", 0, 0, 0 },
 
   { 38, "Q4 Enc ",
-    "P11", 0, 0, 0 },
+    "P9", 0, 0, 0 },
 
   { 39, "Q4 Enc ",
+    "P10", 0, 0, 0 },
+
+  { 40, "Q4 Enc ",
+    "P11", 0, 0, 0 },
+
+  { 41, "Q4 Enc ",
     "P12", 0, 0, 0 },
 
-  { 40, "Signal Generator",
+  { 42, "Signal Generator",
     "Amplitude", 0, 0, 0 },
-
-  { 41, "Sine Wave",
-    "Amplitude", 0, 0, 0 },
-
-  { 42, "Sine Wave",
-    "Bias", 0, 0, 0 },
 
   { 43, "Sine Wave",
+    "Amplitude", 0, 0, 0 },
+
+  { 44, "Sine Wave",
+    "Bias", 0, 0, 0 },
+
+  { 45, "Sine Wave",
     "Phase", 0, 0, 0 },
 
   {
@@ -176,64 +182,66 @@ static const rtwCAPI_ModelParameters rtModelParameters[] = {
   //----skip
 
   //-----
-  { 44, "frequency", 0, 0, 0 },
+  { 46, "frequency", 0, 0, 0 },
 
   //----skip
 
   //-----
-  { 45, "rad", 0, 0, 0 },
+  { 47, "rad", 0, 0, 0 },
 
   { 0, NULL, 0, 0, 0 }
 };
 
 /* Declare Data Addresses statically */
 static void* rtDataAddrMap[] = {
-  &new_analog_loopback_q4_B.Q4AD2_o1,  /* 0: Signal */
-  &new_analog_loopback_q4_B.Q4AD2_o2,  /* 1: Signal */
-  &new_analog_loopback_q4_B.Q4Enc,     /* 2: Signal */
-  &new_analog_loopback_q4_B.SignalGenerator,/* 3: Signal */
-  &new_analog_loopback_q4_B.SineWave,  /* 4: Signal */
-  &new_analog_loopback_q4_P.Q4AD2_P1,  /* 5: Block Parameter */
-  &new_analog_loopback_q4_P.Q4AD2_P2[0],/* 6: Block Parameter */
-  &new_analog_loopback_q4_P.Q4AD2_P3[0],/* 7: Block Parameter */
-  &new_analog_loopback_q4_P.Q4AD2_P5,  /* 8: Block Parameter */
-  &new_analog_loopback_q4_P.Q4AD2_P6,  /* 9: Block Parameter */
-  &new_analog_loopback_q4_P.Q4AD2_P7,  /* 10: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DA_P1,   /* 11: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DA_P2,   /* 12: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DA_P3,   /* 13: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DA_P4,   /* 14: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DA_P5,   /* 15: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DA_P6,   /* 16: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DA_P7,   /* 17: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DA_P8,   /* 18: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DA_P9,   /* 19: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DO_P1,   /* 20: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DO_P2,   /* 21: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DO_P3,   /* 22: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DO_P4,   /* 23: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DO_P5,   /* 24: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DO_P6,   /* 25: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DO_P7,   /* 26: Block Parameter */
-  &new_analog_loopback_q4_P.Q4DO_P8,   /* 27: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P1,  /* 28: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P2,  /* 29: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P3,  /* 30: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P4,  /* 31: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P5,  /* 32: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P6,  /* 33: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P7,  /* 34: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P8,  /* 35: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P9,  /* 36: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P10, /* 37: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P11, /* 38: Block Parameter */
-  &new_analog_loopback_q4_P.Q4Enc_P12, /* 39: Block Parameter */
-  &new_analog_loopback_q4_P.SignalGenerator_Amplitude,/* 40: Block Parameter */
-  &new_analog_loopback_q4_P.SineWave_Amp,/* 41: Block Parameter */
-  &new_analog_loopback_q4_P.SineWave_Bias,/* 42: Block Parameter */
-  &new_analog_loopback_q4_P.SineWave_Phase,/* 43: Block Parameter */
-  &new_analog_loopback_q4_P.frequency, /* 44: Model Parameter */
-  &new_analog_loopback_q4_P.rad        /* 45: Model Parameter */
+  &new_analog_loopback_q4_B.Constant,  /* 0: Signal */
+  &new_analog_loopback_q4_B.Q4AD2_o1,  /* 1: Signal */
+  &new_analog_loopback_q4_B.Q4AD2_o2,  /* 2: Signal */
+  &new_analog_loopback_q4_B.Q4Enc,     /* 3: Signal */
+  &new_analog_loopback_q4_B.SignalGenerator,/* 4: Signal */
+  &new_analog_loopback_q4_B.SineWave,  /* 5: Signal */
+  &new_analog_loopback_q4_P.Constant_Value,/* 6: Block Parameter */
+  &new_analog_loopback_q4_P.Q4AD2_P1,  /* 7: Block Parameter */
+  &new_analog_loopback_q4_P.Q4AD2_P2[0],/* 8: Block Parameter */
+  &new_analog_loopback_q4_P.Q4AD2_P3[0],/* 9: Block Parameter */
+  &new_analog_loopback_q4_P.Q4AD2_P5,  /* 10: Block Parameter */
+  &new_analog_loopback_q4_P.Q4AD2_P6,  /* 11: Block Parameter */
+  &new_analog_loopback_q4_P.Q4AD2_P7,  /* 12: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DA_P1,   /* 13: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DA_P2,   /* 14: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DA_P3,   /* 15: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DA_P4,   /* 16: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DA_P5,   /* 17: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DA_P6,   /* 18: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DA_P7,   /* 19: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DA_P8,   /* 20: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DA_P9,   /* 21: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DO_P1,   /* 22: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DO_P2,   /* 23: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DO_P3,   /* 24: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DO_P4,   /* 25: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DO_P5,   /* 26: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DO_P6,   /* 27: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DO_P7,   /* 28: Block Parameter */
+  &new_analog_loopback_q4_P.Q4DO_P8,   /* 29: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P1,  /* 30: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P2,  /* 31: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P3,  /* 32: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P4,  /* 33: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P5,  /* 34: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P6,  /* 35: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P7,  /* 36: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P8,  /* 37: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P9,  /* 38: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P10, /* 39: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P11, /* 40: Block Parameter */
+  &new_analog_loopback_q4_P.Q4Enc_P12, /* 41: Block Parameter */
+  &new_analog_loopback_q4_P.SignalGenerator_Amplitude,/* 42: Block Parameter */
+  &new_analog_loopback_q4_P.SineWave_Amp,/* 43: Block Parameter */
+  &new_analog_loopback_q4_P.SineWave_Bias,/* 44: Block Parameter */
+  &new_analog_loopback_q4_P.SineWave_Phase,/* 45: Block Parameter */
+  &new_analog_loopback_q4_P.frequency, /* 46: Model Parameter */
+  &new_analog_loopback_q4_P.rad        /* 47: Model Parameter */
 };
 
 /* Declare Data Run-Time Dimension Buffer Addresses statically */
@@ -309,9 +317,9 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
    *          elementMap, sampleTimeMap, dimensionArray},
    * TargetType: targetType
    */
-  { rtBlockSignals, 5 },
+  { rtBlockSignals, 6 },
 
-  { rtBlockParameters, 39,
+  { rtBlockParameters, 40,
     rtModelParameters, 2 },
 
   { NULL, 0 },
@@ -320,10 +328,10 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
     rtElementMap, rtSampleTimeMap, rtDimensionArray },
   "float",
 
-  { 878238066U,
-    2076473627U,
-    1420747037U,
-    2904641680U },
+  { 204993897U,
+    2406832001U,
+    3562426599U,
+    47295950U },
   NULL
 };
 

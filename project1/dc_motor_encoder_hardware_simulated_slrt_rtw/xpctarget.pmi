@@ -1,0 +1,14 @@
+#include "dc_motor_encoder_hardware_simulated.pt"
+
+
+const xpc_ParamMappingInfo  xpcparamsMMI[] =
+  {
+    {
+      {dc_motor_encoder_hardware_simulated_PT},
+      "dc_motor_encoder_hardware_simulated",
+      "",
+      "dc_motor_encoder_hardware_simulated",
+      0,
+      40,
+    },
+  };

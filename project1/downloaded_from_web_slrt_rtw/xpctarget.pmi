@@ -1,0 +1,14 @@
+#include "downloaded_from_web.pt"
+
+
+const xpc_ParamMappingInfo  xpcparamsMMI[] =
+  {
+    {
+      {downloaded_from_web_PT},
+      "downloaded_from_web",
+      "",
+      "downloaded_from_web",
+      0,
+      35,
+    },
+  };

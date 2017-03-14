@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+
+          <SubSystem>
+    <Name>Data Display</Name>
+    <xPCName>dc_motor_encoder_hardware_simulated/Data Display</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Real motor</Name>
+    <xPCName>dc_motor_encoder_hardware_simulated/Real motor</xPCName>
+    
+    
+ 
+            <block>
+            <blkName>angular_position = 
+[relative_count//COUNTS_PER_REV] *360 degrees</blkName>
+            <xpcblkName>Real motor/angular_position =  [relative_count//COUNTS_PER_REV] *360 degrees</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Real motor/angular_position =  [relative_count//COUNTS_PER_REV] *360 degrees</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Saturation</blkName>
+            <xpcblkName>Real motor/Saturation</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Real motor/Saturation</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>UpperLimit</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>LowerLimit</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Channel 0 -Control signal to 
+motor through amplifier </blkName>
+            <xpcblkName>Real motor/Channel 0 -Control signal to  motor through amplifier </xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Real motor/Channel 0 -Control signal to  motor through amplifier </SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Channel 0 of 
+Encoder Inputs </blkName>
+            <xpcblkName>Real motor/Channel 0 of  Encoder Inputs </xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Real motor/Channel 0 of  Encoder Inputs </SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P10</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P11</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P12</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>angular_position = 
+[relative_count//COUNTS_PER_REV] *360 degrees</sigName>
+              <xpcsigName>Real motor/angular_position =  [relative_count//COUNTS_PER_REV] *360 degrees</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Saturation</sigName>
+              <xpcsigName>Real motor/Saturation</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Channel 0 of 
+Encoder Inputs </sigName>
+              <xpcsigName>Real motor/Channel 0 of  Encoder Inputs </xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Simulated motor</Name>
+    <xPCName>dc_motor_encoder_hardware_simulated/Simulated motor</xPCName>
+    
+    
+ 
+            <block>
+            <blkName>Back emf Ke1</blkName>
+            <xpcblkName>Simulated motor/Back emf Ke1</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Simulated motor/Back emf Ke1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Damping b1</blkName>
+            <xpcblkName>Simulated motor/Damping b1</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Simulated motor/Damping b1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Gain Kt2</blkName>
+            <xpcblkName>Simulated motor/Gain Kt2</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Simulated motor/Gain Kt2</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Gain Kt3</blkName>
+            <xpcblkName>Simulated motor/Gain Kt3</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Simulated motor/Gain Kt3</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Inductance</blkName>
+            <xpcblkName>Simulated motor/Inductance</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Simulated motor/Inductance</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Resistance R1</blkName>
+            <xpcblkName>Simulated motor/Resistance R1</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Simulated motor/Resistance R1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Integrator1</blkName>
+            <xpcblkName>Simulated motor/Integrator1</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Simulated motor/Integrator1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Integrator5</blkName>
+            <xpcblkName>Simulated motor/Integrator5</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Simulated motor/Integrator5</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Integrator6</blkName>
+            <xpcblkName>Simulated motor/Integrator6</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Simulated motor/Integrator6</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Back emf Ke1</sigName>
+              <xpcsigName>Simulated motor/Back emf Ke1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Damping b1</sigName>
+              <xpcsigName>Simulated motor/Damping b1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Gain Kt2</sigName>
+              <xpcsigName>Simulated motor/Gain Kt2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Gain Kt3</sigName>
+              <xpcsigName>Simulated motor/Gain Kt3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Inductance</sigName>
+              <xpcsigName>Simulated motor/Inductance</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Resistance R1</sigName>
+              <xpcsigName>Simulated motor/Resistance R1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Integrator1</sigName>
+              <xpcsigName>Simulated motor/Integrator1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Integrator5</sigName>
+              <xpcsigName>Simulated motor/Integrator5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Integrator6</sigName>
+              <xpcsigName>Simulated motor/Integrator6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Simulated motor/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sum2</sigName>
+              <xpcsigName>Simulated motor/Sum2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+    </SubSystem>
+    <SubSystem>
+    <Name>error signal</Name>
+    <xPCName>dc_motor_encoder_hardware_simulated/error signal</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>input side switching logic</Name>
+    <xPCName>dc_motor_encoder_hardware_simulated/input side switching logic</xPCName>
+    
+    
+
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>complement the
+input</sigName>
+              <xpcsigName>input side switching logic/complement the input</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Product</sigName>
+              <xpcsigName>input side switching logic/Product</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Product1</sigName>
+              <xpcsigName>input side switching logic/Product1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+    </SubSystem>
+    <SubSystem>
+    <Name>motor position</Name>
+    <xPCName>dc_motor_encoder_hardware_simulated/motor position</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>setpoint</Name>
+    <xPCName>dc_motor_encoder_hardware_simulated/setpoint</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>switching logic</Name>
+    <xPCName>dc_motor_encoder_hardware_simulated/switching logic</xPCName>
+    
+    
+
+
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>complement the
+input1</sigName>
+              <xpcsigName>switching logic/complement the input1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Product2</sigName>
+              <xpcsigName>switching logic/Product2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Product3</sigName>
+              <xpcsigName>switching logic/Product3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sum2</sigName>
+              <xpcsigName>switching logic/Sum2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+    </SubSystem>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+ 
+            <block>
+            <blkName>1 - Use simulated motor
+0 - Use real motor</blkName>
+            <xpcblkName>1 - Use simulated motor 0 - Use real motor</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/1 - Use simulated motor 0 - Use real motor</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Desired position 
+in degrees</blkName>
+            <xpcblkName>Desired position  in degrees</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Desired position  in degrees</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+ 
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Gain</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Kd</blkName>
+            <xpcblkName>Kd</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Kd</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Ki</blkName>
+            <xpcblkName>Ki</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Ki</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Kp</blkName>
+            <xpcblkName>Kp</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Kp</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>gain</blkName>
+            <xpcblkName>gain</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Integrator1</blkName>
+            <xpcblkName>Integrator1</xpcblkName>
+            <SLblockPath>dc_motor_encoder_hardware_simulated/Integrator1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Derivative1</sigName>
+              <xpcsigName>Derivative1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Gain</xpcsigName>
+              <sigWidth>3</sigWidth>
+              <sigDim>[3, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Kd</sigName>
+              <xpcsigName>Kd</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Ki</sigName>
+              <xpcsigName>Ki</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Kp</sigName>
+              <xpcsigName>Kp</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>gain</sigName>
+              <xpcsigName>gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+                <sigLabel>Setpoint</sigLabel>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Integrator1</sigName>
+              <xpcsigName>Integrator1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+                <sigLabel>Error Signal</sigLabel>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sum4</sigName>
+              <xpcsigName>Sum4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+</Root>

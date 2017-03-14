@@ -5,7 +5,7 @@
  *
  * Model version              : 1.11
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon Mar 13 14:45:39 2017
+ * C source code generated on : Mon Mar 13 15:06:20 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -19,10 +19,10 @@
 
 /* Block parameters (auto storage) */
 P_new_analog_loopback_q4_T new_analog_loopback_q4_P = {
-  2000.0,                              /* Variable: frequency
+  200.0,                               /* Variable: frequency
                                         * Referenced by: '<Root>/Signal Generator'
                                         */
-  12566.0,                             /* Variable: rad
+  1256.0,                              /* Variable: rad
                                         * Referenced by: '<Root>/Sine Wave'
                                         */
 
@@ -178,14 +178,8 @@ P_new_analog_loopback_q4_T new_analog_loopback_q4_P = {
   -1.0,                                /* Expression: pciSlot
                                         * Referenced by: '<Root>/Q4 Enc '
                                         */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<Root>/Sine Wave'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Sine Wave'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Sine Wave'
+  2.0,                                 /* Expression: 2
+                                        * Referenced by: '<Root>/Constant'
                                         */
 
   /*  Computed Parameter: Q4DA_P1_Size
@@ -323,7 +317,16 @@ P_new_analog_loopback_q4_T new_analog_loopback_q4_P = {
    * Referenced by: '<Root>/Q4 DO '
    */
   { 1.0, 1.0 },
-  -1.0                                 /* Expression: pciSlot
+  -1.0,                                /* Expression: pciSlot
                                         * Referenced by: '<Root>/Q4 DO '
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<Root>/Sine Wave'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<Root>/Sine Wave'
+                                        */
+  0.0                                  /* Expression: 0
+                                        * Referenced by: '<Root>/Sine Wave'
                                         */
 };

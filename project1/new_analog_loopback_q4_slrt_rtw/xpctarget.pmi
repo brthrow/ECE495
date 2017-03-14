@@ -9,6 +9,6 @@ const xpc_ParamMappingInfo  xpcparamsMMI[] =
       "",
       "new_analog_loopback_q4",
       0,
-      40,
+      41,
     },
   };

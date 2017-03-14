@@ -1,0 +1,17 @@
+#include "downloaded_from_web.bio"
+#include "downloaded_from_web.lbl"
+#include "downloaded_from_web.sid"
+
+
+const xpc_SigMappingInfo xpcMMI[] =
+  {
+    {
+      {downloaded_from_web_BIO},
+      {downloaded_from_web_SID},
+      {downloaded_from_web_LBL},
+      "",
+      "downloaded_from_web",
+      0,
+      4,
+    },
+  };

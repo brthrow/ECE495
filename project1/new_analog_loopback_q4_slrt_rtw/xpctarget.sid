@@ -17,6 +17,9 @@ const SortedBlockIOSignals sortedBIOSig[] =
       4,4,1
     },
     {
-      -1, -1,5
+      5,5,1
+    },
+    {
+      -1, -1,6
     }
   };

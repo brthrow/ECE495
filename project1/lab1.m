@@ -4,8 +4,8 @@ close all
 decimation = 1;
 samples = 250;
 timestep = 0.0001;
-frequency = 2000;
-rad = 12566;
+frequency = 200;
+rad = 1256;
 %{
 figure(1)
 p1 = plot(tg.TimeLog, tg.OutputLog(:,1));

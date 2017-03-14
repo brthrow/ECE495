@@ -1,0 +1,17 @@
+#include "dc_motor_encoder_hardware_simulated.bio"
+#include "dc_motor_encoder_hardware_simulated.lbl"
+#include "dc_motor_encoder_hardware_simulated.sid"
+
+
+const xpc_SigMappingInfo xpcMMI[] =
+  {
+    {
+      {dc_motor_encoder_hardware_simulated_BIO},
+      {dc_motor_encoder_hardware_simulated_SID},
+      {dc_motor_encoder_hardware_simulated_LBL},
+      "",
+      "dc_motor_encoder_hardware_simulated",
+      0,
+      31,
+    },
+  };
