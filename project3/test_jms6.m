@@ -65,18 +65,21 @@ for i=1:1:num
     end
 end
 
-b = 1;
 viscircles(center, radii, 'EdgeColor','b','LineStyle','--');
-for b=1:1:length(metric)
-    metricString = sprintf('%2.2f', metric(b));
-    text(center(b,1),center(b,2),metricString,'HorizontalAlignment','center','VerticalAlignment','middle','color','g');
+
+num=length(metric);
+for b=1:1:num
+    ballNum = sprintf('%1.0f', b);
+    text(center(b,1),center(b,2),ballNum,'HorizontalAlignment','center',...
+        'VerticalAlignment','middle','color','g',...
+        'FontWeight','bold','FontSize',14);
     x = round(center(b,2))-15;
     y = round(center(b,1))-10;
     red = table(x, y, 1);
     green = table(x, y, 2);
     blue = table(x, y, 3);
     c = getColor(red, green, blue);
-    fprintf('The color of the ball with a metric value %s is %s, and it''s center is at (%d, %d)\n', metricString, c, round(center(b,1)), round(center(b,2)));
+    fprintf('The color of the ball %s is %s, and it''s center is at (%d, %d)\n', ballNum, c, round(center(b,1)), round(center(b,2)));
 end
 fprintf('The number of pool balls in this picture is %d\n\n',length(center));
 toc
