@@ -8,6 +8,7 @@
 clear
 clc
 close all;
+  
 tic
 % load images
 background=imread('background.JPG');
@@ -37,11 +38,11 @@ for i=3:1:9
             v_metric=metric;
         end
     end
-    clear back; clear new; clear foregroun; clear binimg;
+    clear back; clear new; clear foreground; clear binimg;
     clear centers; clear radii; clear metric;
 end
 
-num=length(v_radii);
+num=length(v_centers);
 rad=mean(v_radii);
 bin=ones(num,1);
 
@@ -64,5 +65,18 @@ for i=1:1:num
     end
 end
 
-viscircles(center, radii, 'EdgeColor','b');
+b = 1;
+viscircles(center, radii, 'EdgeColor','b','LineStyle','--');
+for b=1:1:length(metric)
+    metricString = sprintf('%2.2f', metric(b));
+    text(center(b,1),center(b,2),metricString,'HorizontalAlignment','center','VerticalAlignment','middle','color','g');
+    x = round(center(b,1))-10;
+    y = round(center(b,2))-15;
+    red = table(x, y, 1);
+    green = table(x, y, 2);
+    blue = table(x, y, 3);
+    c = getColor(red, green, blue);
+    fprintf('The color of the ball with a metric value %s is %s\n', metricString, c);
+end
+fprintf('The number of pool balls in this picture is %d\n\n',length(center));
 toc
