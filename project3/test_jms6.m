@@ -70,8 +70,8 @@ viscircles(center, radii, 'EdgeColor','b','LineStyle','--');
 for b=1:1:length(metric)
     metricString = sprintf('%2.2f', metric(b));
     text(center(b,1),center(b,2),metricString,'HorizontalAlignment','center','VerticalAlignment','middle','color','g');
-    x = round(center(b,1))-10;
-    y = round(center(b,2))-15;
+    x = round(center(b,2))-15;
+    y = round(center(b,1))-10;
     red = table(x, y, 1);
     green = table(x, y, 2);
     blue = table(x, y, 3);
