@@ -11,8 +11,8 @@ close all;
   
 tic
 % load images
-background=imread('background.JPG');
-newimg=imread('6balls.JPG');
+background=imread('testBG.JPG');
+newimg=imread('test6B.JPG');
 table=newimg;
 
 background=rgb2gray(background);
@@ -21,12 +21,12 @@ newimg=rgb2gray(newimg);
 figure, imshow (table); hold on;
 
 v={};
-for i=3:1:9
+for i=1:1:10
     back=im2bw(background,i/10-0.1);
     new=im2bw(newimg,i/10);
     foreground=bitxor(new,back);
     binimg=im2bw(foreground,0.5);
-    [centers, radii, metric]=imfindcircles(binimg,[22,35]);
+    [centers, radii, metric]=imfindcircles(binimg,[10,30]);
     if size(centers) > 0 
         if exist('v_centers')
             v_centers=[v_centers; centers];
@@ -46,7 +46,7 @@ num=length(v_centers);
 rad=mean(v_radii);
 bin=ones(num,1);
 
-idx = rangesearch(v_centers, v_centers, rad);
+idx = rangesearch(v_centers, v_centers, rad*1.5);
 
 center=[];
 radii=[];
@@ -68,6 +68,7 @@ end
 viscircles(center, radii, 'EdgeColor','b','LineStyle','--');
 
 num=length(metric);
+color = {};
 for b=1:1:num
     ballNum = sprintf('%1.0f', b);
     text(center(b,1),center(b,2),ballNum,'HorizontalAlignment','center',...
@@ -78,8 +79,11 @@ for b=1:1:num
     red = table(x, y, 1);
     green = table(x, y, 2);
     blue = table(x, y, 3);
-    c = getColor(red, green, blue);
-    fprintf('The color of the ball %s is %s, and it''s center is at (%d, %d)\n', ballNum, c, round(center(b,1)), round(center(b,2)));
+    color{b} = getColor(red, green, blue);
+    fprintf('The color of the ball %s is %s, and it''s center is at (%d, %d)\n', ballNum, color{b}, round(center(b,1)), round(center(b,2)));
 end
 fprintf('The number of pool balls in this picture is %d\n\n',length(center));
+
+
+
 toc
