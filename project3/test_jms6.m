@@ -26,7 +26,7 @@ for i=1:1:10
     new=im2bw(newimg,i/10);
     foreground=bitxor(new,back);
     binimg=im2bw(foreground,0.5);
-    [centers, radii, metric]=imfindcircles(binimg,[10,30]);
+    [centers, radii, metric]=imfindcircles(binimg,[10,25]);
     if size(centers) > 0 
         if exist('v_centers')
             v_centers=[v_centers; centers];
@@ -44,7 +44,15 @@ end
 
 num=length(v_centers);
 rad=mean(v_radii);
-bin=ones(num,1);
+bin=zeros(num,1);
+
+for i=1:1:num
+   if (v_centers(i,1)>145 && v_centers(i,1)<590)
+       if (v_centers(i,2)>130 && v_centers(i,2)<395)
+           bin(i)=1;
+       end
+   end
+end
 
 idx = rangesearch(v_centers, v_centers, rad*1.5);
 
@@ -74,16 +82,62 @@ for b=1:1:num
     text(center(b,1),center(b,2),ballNum,'HorizontalAlignment','center',...
         'VerticalAlignment','middle','color','g',...
         'FontWeight','bold','FontSize',14);
-    x = round(center(b,2))-15;
-    y = round(center(b,1))-10;
-    red = table(x, y, 1);
-    green = table(x, y, 2);
-    blue = table(x, y, 3);
+    x = round(center(b,2));
+    y = round(center(b,1));
+    rA=table(x-5:x+5,y-5:y+5,1);
+    gA=table(x-5:x+5,y-5:y+5,2);
+    bA=table(x-5:x+5,y-5:y+5,3);
+    %{
+    for i=-5:1:5
+        for j=-5:1:5
+            r8 = table(x+i, y+j, 1);
+            g8 = table(x+i, y+j, 2)
+            b8 = table(x+i, y+j, 3)
+            r = r + typecast(r8,'double');
+            g = g + typecast(g8,'double');
+            b = b + typecast(b8,'double');
+            count = count + 1;
+        end
+    end
+    %}
+    red = mean(mean(rA));
+    green = mean(mean(gA));
+    blue = mean(mean(bA));
     color{b} = getColor(red, green, blue);
+    theta(b) = atand((365-center(b,1))/((445+55)-center(b,2)));
     fprintf('The color of the ball %s is %s, and it''s center is at (%d, %d)\n', ballNum, color{b}, round(center(b,1)), round(center(b,2)));
 end
 fprintf('The number of pool balls in this picture is %d\n\n',length(center));
 
-
+flag = 0;
+while 1 %~flag
+    flag = menu('Please choose a color from the ones listed','red','black','blue','yellow','white','orange','all');
+    switch flag
+        case 1
+            select = 'red';
+        case 2
+            select = 'black';
+        case 3
+            select = 'blue';
+        case 4
+            select = 'yellow';
+        case 5
+            select = 'white';
+        case 6
+            select = 'orange';
+        case 7
+            select = 'all';
+    end
+    bNum = strmatch(select,color);
+    if flag ~= 0 && flag ~= 7
+        set_param('Project3/Constant','Value',num2str(theta(bNum)));
+            pause(2);
+    elseif flag == 7
+        for i=1:1:num
+           set_param('Project3/Constant','Value',num2str(round(theta(i))));
+           pause(2);
+        end 
+    end
+end
 
 toc

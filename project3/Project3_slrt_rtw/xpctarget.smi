@@ -1,0 +1,17 @@
+#include "Project3.bio"
+#include "Project3.lbl"
+#include "Project3.sid"
+
+
+const xpc_SigMappingInfo xpcMMI[] =
+  {
+    {
+      {Project3_BIO},
+      {Project3_SID},
+      {Project3_LBL},
+      "",
+      "Project3",
+      0,
+      31,
+    },
+  };
