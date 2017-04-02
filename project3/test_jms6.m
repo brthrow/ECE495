@@ -110,7 +110,7 @@ end
 fprintf('The number of pool balls in this picture is %d\n\n',length(center));
 
 flag = 0;
-while 1 %~flag
+while 0 %~flag
     flag = menu('Please choose a color from the ones listed','red','black','blue','yellow','white','orange','all');
     switch flag
         case 1
