@@ -22,7 +22,7 @@ function varargout = p3GUI(varargin)
 
 % Edit the above text to modify the response to help p3GUI
 
-% Last Modified by GUIDE v2.5 14-Mar-2017 21:31:01
+% Last Modified by GUIDE v2.5 11-Apr-2017 23:23:11
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -52,9 +52,11 @@ function p3GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to p3GUI (see VARARGIN)
 clc
 
-handles.background = imread('p3BG.JPG');
+background = imread('p3BG.JPG');
+setappdata(0, 'bg', background);
 
 handles.vid = videoinput('winvideo', 2, 'MJPG_640x480');
+
 
 set(handles.vid,'TriggerRepeat',Inf); 
 handles.vid.FrameGrabInterval = 1;
@@ -85,109 +87,173 @@ function varargout = p3GUI_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
-% --- Executes on button press in pushbutton1.
-function pushbutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
+% --- Executes on button press in calculate.
+function calculate_Callback(hObject, eventdata, handles)
+% hObject    handle to calculate (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-axes(handles.axes1);
+%axes(handles.axes1);
 cla;
 
-if isrunning(handles.vid) == 1
-    stop(handles.vid);
-end
+% if isfield(handles, 'vid')
+%     stop(handles.vid);
+% end
 
 start(handles.vid);
 
-handles.data = getdata(handles.vid,1); 
-handles.newimg = handles.data(:,:,:,1);
+data = getdata(handles.vid,1); 
+handles.newimg = data(:,:,:,1);
+
+stop(handles.vid);
 
 handles.table=handles.newimg;
 
-handles.background=rgb2gray(handles.background);
+background = getappdata(0, 'bg');
+
+background=rgb2gray(background);
 handles.newimg=rgb2gray(handles.newimg);
 
-figure, imshow (handles.table); hold on;
+imshow (handles.table, 'Parent', handles.axes1); hold on;
 
 v={};
 for i=3:1:9
-    handles.back=im2bw(handles.background,i/10-0.1);
-    handles.new=im2bw(handles.newimg,i/10);
-    handles.foreground=bitxor(handles.new,handles.back);
-    handles.binimg=im2bw(handles.foreground,0.5);
-    [handles.centers, handles.radii, handles.metric]=imfindcircles(handles.binimg,[22,35]);
-    if size(handles.centers) > 0 
-        if exist('handles.v_centers')
-            handles.v_centers=[handles.v_centers; handles.centers];
-            handles.v_radii=[handles.v_radii; handles.radii];
-            handles.v_metric=[handles.v_metric; handles.metric];
+    back=im2bw(background,i/10-0.1);
+    new=im2bw(handles.newimg,i/10);
+    foreground=bitxor(new,back);
+    binimg=im2bw(foreground,0.5);
+    [centers, radii, metric]=imfindcircles(binimg,[10,25]);
+    if size(centers) > 0 
+        if exist('v_centers')
+            v_centers=[handles.v_centers; centers];
+            v_radii=[handles.v_radii; radii];
+            v_metric=[handles.v_metric; metric];
         else
-            handles.v_centers=handles.centers;
-            handles.v_radii=handles.radii;
-            handles.v_metric=handles.metric;
+            v_centers=centers;
+            v_radii=radii;
+            v_metric=metric;
         end
     end
-    clear handles.back; clear handles.new; clear handles.foreground; clear handles.binimg;
-    clear handles.centers; clear handles.radii; clear handles.metric;
+    clear back; clear new; clear foreground; clear binimg;
+    clear centers; clear radii; clear metric;
 end
 
-handles.num=length(handles.v_centers);
-handles.rad=mean(handles.v_radii);
-handles.bin=ones(handles.num,1);
+num=length(v_centers);
+handles.rad=mean(v_radii);
+bin=zeros(num,1);
 
-handles.idx = rangesearch(handles.v_centers, handles.v_centers, handles.rad);
+for i=1:1:num
+   if (v_centers(i,1)>145 && v_centers(i,1)<590)
+       if (v_centers(i,2)>130 && v_centers(i,2)<395)
+           bin(i)=1;
+       end
+   end
+end
+
+idx = rangesearch(v_centers, v_centers, handles.rad*1.5);
 
 handles.center=[];
 handles.radii=[];
 handles.metric=[];
 
 k=1;
-for i=1:1:handles.num
-    if handles.bin(i)
-        for j=1:1:(length(handles.idx{i})-1)
-            handles.bin(handles.idx{i}(1+j),1)=0;
+for i=1:1:num
+    if bin(i)
+        for j=1:1:(length(idx{i})-1)
+            bin(idx{i}(1+j),1)=0;
         end
-        handles.center(k,:)=handles.v_centers(i,:);
-        handles.radii(k,:)=handles.v_radii(i,:);
-        handles.metric(k,:)=handles.v_metric(i,:);
+        handles.center(k,:)=v_centers(i,:);
+        handles.radii(k,:)=v_radii(i,:);
+        handles.metric(k,:)=v_metric(i,:);
         k=k+1;
     end
 end
 
 viscircles(handles.center, handles.radii, 'EdgeColor','b','LineStyle','--');
 
-num=length(handles.metric);
-for b=1:1:num
-    handles.ballNum = sprintf('%1.0f', b);
-    text(handles.center(b,1),handles.center(b,2),handles.ballNum,'HorizontalAlignment','center',...
+handles.num=length(metric);
+handles.color = {};
+for b=1:1:handles.num
+    ballNum = sprintf('%1.0f', b);
+    text(handles.center(b,1),handles.center(b,2),ballNum,'HorizontalAlignment','center',...
         'VerticalAlignment','middle','color','g',...
         'FontWeight','bold','FontSize',14);
-    handles.x = round(handles.center(b,2))-15;
-    handles.y = round(handles.center(b,1))-10;
-    handles.red = handles.table(handles.x, handles.y, 1);
-    handles.green = handles.table(handles.x, handles.y, 2);
-    handles.blue = handles.table(handles.x, handles.y, 3);
-    handles.c = getColor(handles.red, handles.green, handles.blue);
-    fprintf('The color of ball %s is %s, and it''s center is at (%d, %d)\n', handles.ballNum, handles.c, round(handles.center(b,1)), round(handles.center(b,2)));
+    x = round(handles.center(b,2));
+    y = round(handles.center(b,1));
+    rA=table(x-5:x+5,y-5:y+5,1);
+    gA=table(x-5:x+5,y-5:y+5,2);
+    bA=table(x-5:x+5,y-5:y+5,3);
+    %{
+    for i=-5:1:5
+        for j=-5:1:5
+            r8 = table(x+i, y+j, 1);
+            g8 = table(x+i, y+j, 2)
+            b8 = table(x+i, y+j, 3)
+            r = r + typecast(r8,'double');
+            g = g + typecast(g8,'double');
+            b = b + typecast(b8,'double');
+            count = count + 1;
+        end
+    end
+    %}
+    red = mean(mean(rA));
+    green = mean(mean(gA));
+    blue = mean(mean(bA));
+    handles.color{b} = getColor(red, green, blue);
+    handles.theta(b) = atand((365-handles.center(b,1))/((445+55)-handles.center(b,2)));
+    fprintf('The color of the ball %s is %s, and it''s center is at (%d, %d)\n', ballNum, handles.color{b}, round(handles.center(b,1)), round(handles.center(b,2)));
 end
 fprintf('The number of pool balls in this picture is %d\n\n',length(handles.center));
 
-%{
-popup_sel_index = get(handles.popupmenu1, 'Value');
-switch popup_sel_index
-    case 1
-        plot(rand(5));
-    case 2
-        plot(sin(1:0.01:25.99));
-    case 3
-        bar(1:.5:10);
-    case 4
-        plot(membrane);
-    case 5
-        surf(peaks);
+contents = get(handles.selection, 'String');
+popup_value = contents{get(handles.selection, 'Value')};
+
+switch popup_value
+    case 'Red'
+        bNum = strmatch('Red',handles.color);
+        if bNum ~= []
+            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+            pause(2);
+        end
+    case 'Yellow'
+        bNum = strmatch('Yellow',handles.color);
+        if bNum ~= []
+            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+            pause(2);
+        end
+    case 'Orange'
+        bNum = strmatch('Orange',handles.color);
+        if bNum ~= []
+            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+            pause(2);
+        end
+    case 'Black'
+        bNum = strmatch('Black',handles.color);
+        if bNum ~= []
+            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+            pause(2);
+        end
+    case 'Blue'
+        bNum = strmatch('Blue',handles.color);
+        if bNum ~= []
+            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+            pause(2);
+        end
+    case 'White'
+        bNum = strmatch('White',handles.color);
+        if bNum ~= []
+            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+            pause(2);
+        end
+    case 'All'
+        bNum = strmatch('All',handles.color);
+        if bNum ~= []
+           for i=1:1:num
+               set_param('Project3/Constant','Value',num2str(round(theta(i))));
+               pause(2);
+           end
+        end
 end
-%}
-stop(handles.vid);
+
 
 
 % --------------------------------------------------------------------
@@ -229,19 +295,19 @@ end
 delete(handles.figure1)
 
 
-% --- Executes on selection change in popupmenu1.
-function popupmenu1_Callback(hObject, eventdata, handles)
-% hObject    handle to popupmenu1 (see GCBO)
+% --- Executes on selection change in selection.
+function selection_Callback(hObject, eventdata, handles)
+% hObject    handle to selection (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = get(hObject,'String') returns popupmenu1 contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from popupmenu1
+% Hints: contents = get(hObject,'String') returns selection contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from selection
 
 
 % --- Executes during object creation, after setting all properties.
-function popupmenu1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to popupmenu1 (see GCBO)
+function selection_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to selection (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -252,3 +318,14 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 set(hObject, 'String', {'Red', 'Yellow', 'Orange', 'Blue', 'Black', 'White', 'All'});
+
+
+% --- Executes when user attempts to close figure1.
+function figure1_CloseRequestFcn(hObject, eventdata, handles)
+% hObject    handle to figure1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: delete(hObject) closes the figure
+delete(handles.vid);
+delete(hObject);
