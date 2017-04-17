@@ -52,7 +52,7 @@ function p3GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to p3GUI (see VARARGIN)
 clc
 
-background = imread('p3BG.JPG');
+background = imread('back.jpg');
 setappdata(0, 'bg', background);
 
 handles.vid = videoinput('winvideo', 2, 'MJPG_640x480');
@@ -116,17 +116,19 @@ handles.newimg=rgb2gray(handles.newimg);
 imshow (handles.table, 'Parent', handles.axes1); hold on;
 
 v={};
+se=strel('disk',8);
 for i=3:1:9
     back=im2bw(background,i/10-0.1);
     new=im2bw(handles.newimg,i/10);
+    new=imdilate(new,se);
     foreground=bitxor(new,back);
     binimg=im2bw(foreground,0.5);
-    [centers, radii, metric]=imfindcircles(binimg,[10,25]);
+    [centers, radii, metric]=imfindcircles(binimg,[10,23]);
     if size(centers) > 0 
         if exist('v_centers')
-            v_centers=[handles.v_centers; centers];
-            v_radii=[handles.v_radii; radii];
-            v_metric=[handles.v_metric; metric];
+            v_centers=[v_centers; centers];
+            v_radii=[v_radii; radii];
+            v_metric=[v_metric; metric];
         else
             v_centers=centers;
             v_radii=radii;
@@ -170,7 +172,7 @@ end
 
 viscircles(handles.center, handles.radii, 'EdgeColor','b','LineStyle','--');
 
-handles.num=length(metric);
+handles.num=length(handles.metric);
 handles.color = {};
 for b=1:1:handles.num
     ballNum = sprintf('%1.0f', b);
@@ -179,9 +181,9 @@ for b=1:1:handles.num
         'FontWeight','bold','FontSize',14);
     x = round(handles.center(b,2));
     y = round(handles.center(b,1));
-    rA=table(x-5:x+5,y-5:y+5,1);
-    gA=table(x-5:x+5,y-5:y+5,2);
-    bA=table(x-5:x+5,y-5:y+5,3);
+    rA=handles.table(x-3:x+3,y-3:y+3,1);
+    gA=handles.table(x-3:x+3,y-3:y+3,2);
+    bA=handles.table(x-3:x+3,y-3:y+3,3);
     %{
     for i=-5:1:5
         for j=-5:1:5
@@ -198,60 +200,115 @@ for b=1:1:handles.num
     red = mean(mean(rA));
     green = mean(mean(gA));
     blue = mean(mean(bA));
+    fprintf('The RGB values of Ball %s are (%f, %f, %f)\n', ballNum, red, green, blue);
     handles.color{b} = getColor(red, green, blue);
-    handles.theta(b) = atand((365-handles.center(b,1))/((445+55)-handles.center(b,2)));
+    handles.theta(b) = atand((handles.center(b,2)-262)/(handles.center(b,1)-97));
     fprintf('The color of the ball %s is %s, and it''s center is at (%d, %d)\n', ballNum, handles.color{b}, round(handles.center(b,1)), round(handles.center(b,2)));
+    clear rA; clear gA; clear bA;
 end
 fprintf('The number of pool balls in this picture is %d\n\n',length(handles.center));
 
 contents = get(handles.selection, 'String');
 popup_value = contents{get(handles.selection, 'Value')};
+Fire = 'N';
 
 switch popup_value
     case 'Red'
-        bNum = strmatch('Red',handles.color);
-        if bNum ~= []
-            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+        bNum = strmatch('red',handles.color);
+        sz = size(bNum);
+        if (sz)
+            set_param('Project3/Constant','Value',num2str(handles.theta(bNum)));
             pause(2);
+            Fire = input('Fire (Y/N): ','s');
+            if (Fire=='Y' || Fire == 'y')
+                set_param('Project3/Subsystem/Constant','Value','5');
+                pause(0.250);
+                set_param('Project3/Subsystem/Constant','Value','0');
+            end
+            pause(0.5);
+            set_param('Project3/Constant', 'Value','0');
         end
     case 'Yellow'
-        bNum = strmatch('Yellow',handles.color);
-        if bNum ~= []
-            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+        bNum = strmatch('yellow',handles.color);
+        sz = size(bNum);
+        if (sz)
+            set_param('Project3/Constant','Value',num2str(handles.theta(bNum)));
             pause(2);
+            Fire = input('Fire (Y/N): ','s');
+            if (Fire=='Y' || Fire == 'y')
+                set_param('Project3/Subsystem/Constant','Value','5');
+                pause(0.250);
+                set_param('Project3/Subsystem/Constant','Value','0');
+            end
+            pause(0.5);
+            set_param('Project3/Constant', 'Value','0');
         end
     case 'Orange'
-        bNum = strmatch('Orange',handles.color);
-        if bNum ~= []
-            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+        bNum = strmatch('orange',handles.color);
+        sz = size(bNum);
+        if (sz)
+            set_param('Project3/Constant','Value',num2str(handles.theta(bNum)));
             pause(2);
+            Fire = input('Fire (Y/N): ','s');
+            if (Fire=='Y' || Fire == 'y')
+                set_param('Project3/Subsystem/Constant','Value','5');
+                pause(0.250);
+                set_param('Project3/Subsystem/Constant','Value','0');
+            end
+            pause(0.5);
+            set_param('Project3/Constant', 'Value','0');
         end
     case 'Black'
-        bNum = strmatch('Black',handles.color);
-        if bNum ~= []
-            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+        bNum = strmatch('black',handles.color);
+        sz = size(bNum);
+        if (sz)
+            set_param('Project3/Constant','Value',num2str(handles.theta(bNum)));
             pause(2);
+            Fire = input('Fire (Y/N): ','s');
+            if (Fire=='Y' || Fire == 'y')
+                set_param('Project3/Subsystem/Constant','Value','5');
+                pause(0.250);
+                set_param('Project3/Subsystem/Constant','Value','0');
+            end
+            pause(0.5);
+            set_param('Project3/Constant', 'Value','0');
         end
     case 'Blue'
-        bNum = strmatch('Blue',handles.color);
-        if bNum ~= []
-            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+        bNum = strmatch('blue',handles.color);
+        sz = size(bNum);
+        if (sz)
+            set_param('Project3/Constant','Value',num2str(handles.theta(bNum)));
             pause(2);
+            Fire = input('Fire (Y/N): ','s');
+            if (Fire=='Y' || Fire == 'y')
+                set_param('Project3/Subsystem/Constant','Value','5');
+                pause(0.250);
+                set_param('Project3/Subsystem/Constant','Value','0');
+            end
+            pause(0.5);
+            set_param('Project3/Constant', 'Value','0');
         end
     case 'White'
-        bNum = strmatch('White',handles.color);
-        if bNum ~= []
-            set_param('Project3/Constant','Value',num2str(theta(bNum)));
+        bNum = strmatch('white',handles.color);
+        fprintf('Just a test\n');
+        fprintf('%f\n', bNum);
+        if (bNum > 0)
+            set_param('Project3/Constant','Value',num2str(handles.theta(bNum)));
             pause(2);
+            Fire = input('Fire (Y/N): ','s');
+            if (Fire=='Y' || Fire == 'y')
+                set_param('Project3/Subsystem/Constant','Value','5');
+                pause(0.250);
+                set_param('Project3/Subsystem/Constant','Value','0');
+            end
+            pause(0.5);
+            set_param('Project3/Constant', 'Value','0');
         end
     case 'All'
-        bNum = strmatch('All',handles.color);
-        if bNum ~= []
-           for i=1:1:num
-               set_param('Project3/Constant','Value',num2str(round(theta(i))));
-               pause(2);
-           end
-        end
+       for i=1:1:handles.num
+           set_param('Project3/Constant','Value',num2str(round(handles.theta(i))));
+           pause(2);
+       end
 end
 
 
