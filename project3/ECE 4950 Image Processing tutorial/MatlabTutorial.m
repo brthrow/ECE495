@@ -40,11 +40,11 @@ thresh2 = im2bw(newimg2,0.45);% we can use a different threshold value to captur
 se = strel('square',10); % Structural element of 5x5 
 dilate= imdilate(thresh, se);
 dilate2= imdilate(dilate, se); %Dilate multiple times if needed
-%figure, imshow (dilate2);
+figure, imshow (dilate2);
 
 %Background subtraction:
 foreground= bitxor(thresh2, thresh); %there are multiple ways to do background subtraction, here we simply use bitwise XOR
-figure, imshow (foreground); %Foreground pixels separated 
+%figure, imshow (foreground); %Foreground pixels separated 
 
 %grayimg= rgb2gray(foreground);
 
@@ -63,7 +63,7 @@ g= S(1).Area; %Values stored in a struct
 cent = regionprops(binimg, 'centroid');
 centroids = cat(1, cent.Centroid); %struct holds the centroids
 
-figure, imshow(foreground)
+%figure, imshow(foreground)
 hold on
 for x = 1: numel(S)
     if (S(x).Area>1000)
