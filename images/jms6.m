@@ -11,8 +11,8 @@ close all;
   
 tic
 % load images
-background=imread('table.JPG');
-newimg=imread('test4.JPG');
+background=imread('table2.JPG');
+newimg=imread('test4_2.JPG');
 table=newimg;
 
 background=rgb2gray(background);
@@ -30,7 +30,7 @@ for i=4:0.25:8
     binimg=im2bw(foreground,0.5);
     %imshow(binimg);
     [centers, radii, metric]=imfindcircles(binimg,[10,20]);
-    %viscircles(centers, radii, 'EdgeColor','b','LineStyle','--');
+    viscircles(centers, radii, 'EdgeColor','b','LineStyle','--');
     if size(centers) > 0 
         if exist('v_centers')
             v_centers=[v_centers; centers];
