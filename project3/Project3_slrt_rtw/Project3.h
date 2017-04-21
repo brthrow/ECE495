@@ -3,9 +3,9 @@
  *
  * Code generation for model "Project3".
  *
- * Model version              : 1.89
+ * Model version              : 1.103
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Wed Mar 15 17:53:18 2017
+ * C source code generated on : Mon Apr 17 14:47:16 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -815,13 +815,14 @@
 /* Block signals (auto storage) */
 typedef struct {
   real_T Setpoint;                     /* '<S1>/gain' */
-  real_T Integrator6;                  /* '<S4>/Integrator6' */
-  real_T Product2;                     /* '<S9>/Product2' */
-  real_T Channel0ofEncoderInputs;      /* '<S3>/Channel 0 of  Encoder Inputs ' */
-  real_T angular_positionrelative_countC;/* '<S3>/angular_position =  [relative_count//COUNTS_PER_REV] *360 degrees' */
-  real_T Product3;                     /* '<S9>/Product3' */
-  real_T Sum2;                         /* '<S9>/Sum2' */
+  real_T Integrator6;                  /* '<S5>/Integrator6' */
+  real_T Product2;                     /* '<S10>/Product2' */
+  real_T Channel0ofEncoderInputs;      /* '<S4>/Channel 0 of  Encoder Inputs ' */
+  real_T angular_positionrelative_countC;/* '<S4>/angular_position =  [relative_count//COUNTS_PER_REV] *360 degrees' */
+  real_T Product3;                     /* '<S10>/Product3' */
+  real_T Sum2;                         /* '<S10>/Sum2' */
   real_T ErrorSignal;                  /* '<S1>/Sum1' */
+  real_T Constant;                     /* '<S1>/Constant' */
   real_T Derivative1;                  /* '<S1>/Derivative1' */
   real_T Gain[3];                      /* '<S1>/Gain' */
   real_T Integrator1;                  /* '<S1>/Integrator1' */
@@ -829,21 +830,23 @@ typedef struct {
   real_T Ki;                           /* '<S1>/Ki' */
   real_T Kp;                           /* '<S1>/Kp' */
   real_T Sum4;                         /* '<S1>/Sum4' */
-  real_T Product1;                     /* '<S6>/Product1' */
-  real_T Saturation;                   /* '<S3>/Saturation' */
-  real_T Integrator5;                  /* '<S4>/Integrator5' */
-  real_T BackemfKe1;                   /* '<S4>/Back emf Ke1' */
-  real_T Dampingb1;                    /* '<S4>/Damping b1' */
-  real_T Integrator1_h;                /* '<S4>/Integrator1' */
-  real_T GainKt2;                      /* '<S4>/Gain Kt2' */
-  real_T Sum2_e;                       /* '<S4>/Sum2' */
-  real_T GainKt3;                      /* '<S4>/Gain Kt3' */
-  real_T Product;                      /* '<S6>/Product' */
-  real_T ResistanceR1;                 /* '<S4>/Resistance R1' */
-  real_T Sum1;                         /* '<S4>/Sum1' */
-  real_T Inductance;                   /* '<S4>/Inductance' */
-  boolean_T complementtheinput1;       /* '<S9>/complement the input1' */
-  boolean_T complementtheinput;        /* '<S6>/complement the input' */
+  real_T Product1;                     /* '<S7>/Product1' */
+  real_T Saturation;                   /* '<S4>/Saturation' */
+  real_T Integrator5;                  /* '<S5>/Integrator5' */
+  real_T BackemfKe1;                   /* '<S5>/Back emf Ke1' */
+  real_T Dampingb1;                    /* '<S5>/Damping b1' */
+  real_T Integrator1_h;                /* '<S5>/Integrator1' */
+  real_T GainKt2;                      /* '<S5>/Gain Kt2' */
+  real_T Sum2_e;                       /* '<S5>/Sum2' */
+  real_T GainKt3;                      /* '<S5>/Gain Kt3' */
+  real_T Product;                      /* '<S7>/Product' */
+  real_T ResistanceR1;                 /* '<S5>/Resistance R1' */
+  real_T Sum1;                         /* '<S5>/Sum1' */
+  real_T Inductance;                   /* '<S5>/Inductance' */
+  real_T Q4AD;                         /* '<S1>/Q4 AD' */
+  boolean_T complementtheinput1;       /* '<S10>/complement the input1' */
+  boolean_T complementtheinput;        /* '<S7>/complement the input' */
+  boolean_T Compare;                   /* '<S2>/Compare' */
 } B_Project3_T;
 
 /* Block states (auto storage) for system '<Root>' */
@@ -852,49 +855,50 @@ typedef struct {
   real_T LastUAtTimeA;                 /* '<S1>/Derivative1' */
   real_T TimeStampB;                   /* '<S1>/Derivative1' */
   real_T LastUAtTimeB;                 /* '<S1>/Derivative1' */
-  real_T Channel0Controlsignaltomotorthr[16];/* '<S3>/Channel 0 -Control signal to  motor through amplifier ' */
-  int_T Channel0ofEncoderInputs_IWORK[3];/* '<S3>/Channel 0 of  Encoder Inputs ' */
+  real_T Channel0Controlsignaltomotorthr[16];/* '<S4>/Channel 0 -Control signal to  motor through amplifier ' */
+  int_T Channel0ofEncoderInputs_IWORK[3];/* '<S4>/Channel 0 of  Encoder Inputs ' */
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK;                   /* '<S2>/S-Function' */
+  } SFunction_IWORK;                   /* '<S3>/S-Function' */
 
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK_i;                 /* '<S5>/S-Function' */
+  } SFunction_IWORK_i;                 /* '<S6>/S-Function' */
 
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK_it;                /* '<S7>/S-Function' */
+  } SFunction_IWORK_it;                /* '<S8>/S-Function' */
 
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK_n;                 /* '<S8>/S-Function' */
+  } SFunction_IWORK_n;                 /* '<S9>/S-Function' */
 
-  int_T Channel0Controlsignaltomotort_l;/* '<S3>/Channel 0 -Control signal to  motor through amplifier ' */
+  int_T Channel0Controlsignaltomotort_l;/* '<S4>/Channel 0 -Control signal to  motor through amplifier ' */
+  int_T Q4AD_IWORK[2];                 /* '<S1>/Q4 AD' */
 } DW_Project3_T;
 
 /* Continuous states (auto storage) */
 typedef struct {
-  real_T Integrator6_CSTATE;           /* '<S4>/Integrator6' */
+  real_T Integrator6_CSTATE;           /* '<S5>/Integrator6' */
   real_T Integrator1_CSTATE;           /* '<S1>/Integrator1' */
-  real_T Integrator5_CSTATE;           /* '<S4>/Integrator5' */
-  real_T Integrator1_CSTATE_i;         /* '<S4>/Integrator1' */
+  real_T Integrator5_CSTATE;           /* '<S5>/Integrator5' */
+  real_T Integrator1_CSTATE_i;         /* '<S5>/Integrator1' */
 } X_Project3_T;
 
 /* State derivatives (auto storage) */
 typedef struct {
-  real_T Integrator6_CSTATE;           /* '<S4>/Integrator6' */
+  real_T Integrator6_CSTATE;           /* '<S5>/Integrator6' */
   real_T Integrator1_CSTATE;           /* '<S1>/Integrator1' */
-  real_T Integrator5_CSTATE;           /* '<S4>/Integrator5' */
-  real_T Integrator1_CSTATE_i;         /* '<S4>/Integrator1' */
+  real_T Integrator5_CSTATE;           /* '<S5>/Integrator5' */
+  real_T Integrator1_CSTATE_i;         /* '<S5>/Integrator1' */
 } XDot_Project3_T;
 
 /* State disabled  */
 typedef struct {
-  boolean_T Integrator6_CSTATE;        /* '<S4>/Integrator6' */
+  boolean_T Integrator6_CSTATE;        /* '<S5>/Integrator6' */
   boolean_T Integrator1_CSTATE;        /* '<S1>/Integrator1' */
-  boolean_T Integrator5_CSTATE;        /* '<S4>/Integrator5' */
-  boolean_T Integrator1_CSTATE_i;      /* '<S4>/Integrator1' */
+  boolean_T Integrator5_CSTATE;        /* '<S5>/Integrator5' */
+  boolean_T Integrator1_CSTATE_i;      /* '<S5>/Integrator1' */
 } XDis_Project3_T;
 
 #ifndef ODE3_INTG
@@ -933,191 +937,236 @@ typedef struct {
 
 /* Parameters (auto storage) */
 struct P_Project3_T_ {
-  real_T Constant_Value;               /* Expression: -5.1612
+  real_T CompareToConstant_const;      /* Mask Parameter: CompareToConstant_const
+                                        * Referenced by: '<S2>/Constant'
+                                        */
+  real_T Constant_Value;               /* Expression: 0
                                         * Referenced by: '<Root>/Constant'
                                         */
   real_T gain_Gain;                    /* Expression: 1
                                         * Referenced by: '<S1>/gain'
                                         */
   real_T Integrator6_IC;               /* Expression: 0
-                                        * Referenced by: '<S4>/Integrator6'
+                                        * Referenced by: '<S5>/Integrator6'
                                         */
   real_T Usesimulatedmotor0Userealmotor_;/* Expression: 0
                                           * Referenced by: '<S1>/1 - Use simulated motor 0 - Use real motor'
                                           */
   real_T Channel0ofEncoderInputs_P1_Size[2];/* Computed Parameter: Channel0ofEncoderInputs_P1_Size
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P1;   /* Expression: boardtype
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P2_Size[2];/* Computed Parameter: Channel0ofEncoderInputs_P2_Size
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P2;   /* Expression: channel
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P3_Size[2];/* Computed Parameter: Channel0ofEncoderInputs_P3_Size
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P3;   /* Expression: initialCount
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P4_Size[2];/* Computed Parameter: Channel0ofEncoderInputs_P4_Size
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P4;   /* Expression: prescale
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P5_Size[2];/* Computed Parameter: Channel0ofEncoderInputs_P5_Size
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P5;   /* Expression: quadrature
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P6_Size[2];/* Computed Parameter: Channel0ofEncoderInputs_P6_Size
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P6;   /* Expression: mode
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P7_Size[2];/* Computed Parameter: Channel0ofEncoderInputs_P7_Size
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P7;   /* Expression: synchronousIndex
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P8_Size[2];/* Computed Parameter: Channel0ofEncoderInputs_P8_Size
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P8;   /* Expression: indexPolarity
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P9_Size[2];/* Computed Parameter: Channel0ofEncoderInputs_P9_Size
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P9;   /* Expression: preserveCounts
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P10_Siz[2];/* Computed Parameter: Channel0ofEncoderInputs_P10_Siz
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P10;  /* Expression: sampleTime
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P11_Siz[2];/* Computed Parameter: Channel0ofEncoderInputs_P11_Siz
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P11;  /* Expression: pciBus
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T Channel0ofEncoderInputs_P12_Siz[2];/* Computed Parameter: Channel0ofEncoderInputs_P12_Siz
-                                             * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                             * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                              */
   real_T Channel0ofEncoderInputs_P12;  /* Expression: pciSlot
-                                        * Referenced by: '<S3>/Channel 0 of  Encoder Inputs '
+                                        * Referenced by: '<S4>/Channel 0 of  Encoder Inputs '
                                         */
   real_T angular_positionrelative_countC;/* Expression: -360/1600
-                                          * Referenced by: '<S3>/angular_position =  [relative_count//COUNTS_PER_REV] *360 degrees'
+                                          * Referenced by: '<S4>/angular_position =  [relative_count//COUNTS_PER_REV] *360 degrees'
                                           */
+  real_T Constant_Value_d;             /* Expression: 0
+                                        * Referenced by: '<S1>/Constant'
+                                        */
   real_T Gain_Gain;                    /* Expression: 1
                                         * Referenced by: '<S1>/Gain'
                                         */
   real_T Integrator1_IC;               /* Expression: 0
                                         * Referenced by: '<S1>/Integrator1'
                                         */
-  real_T Kd_Gain;                      /* Expression: .011
+  real_T Kd_Gain;                      /* Expression: 0.011
                                         * Referenced by: '<S1>/Kd'
                                         */
-  real_T Ki_Gain;                      /* Expression: .026/2
+  real_T Ki_Gain;                      /* Expression: 0.026/2
                                         * Referenced by: '<S1>/Ki'
                                         */
-  real_T Kp_Gain;                      /* Expression: .5*5
+  real_T Kp_Gain;                      /* Expression: 0.5*5
                                         * Referenced by: '<S1>/Kp'
                                         */
   real_T Saturation_UpperSat;          /* Expression: 10
-                                        * Referenced by: '<S3>/Saturation'
+                                        * Referenced by: '<S4>/Saturation'
                                         */
   real_T Saturation_LowerSat;          /* Expression: -10
-                                        * Referenced by: '<S3>/Saturation'
+                                        * Referenced by: '<S4>/Saturation'
                                         */
   real_T Channel0Controlsignaltomotorthr[2];/* Computed Parameter: Channel0Controlsignaltomotorthr
-                                             * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                              */
   real_T Channel0Controlsignaltomotort_m;/* Expression: boardtype
-                                          * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                          * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                           */
   real_T Channel0Controlsignaltomotort_h[2];/* Computed Parameter: Channel0Controlsignaltomotort_h
-                                             * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                              */
-  real_T Channel0Controlsignaltomotort_k;/* Expression: channel
-                                          * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
-                                          */
+  real_T Channel0Controlsignaltomotort_k[2];/* Expression: channel
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
+                                             */
   real_T Channel0Controlsignaltomotort_e[2];/* Computed Parameter: Channel0Controlsignaltomotort_e
-                                             * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                              */
-  real_T Channel0Controlsignaltomotort_c;/* Expression: range
-                                          * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
-                                          */
+  real_T Channel0Controlsignaltomotort_c[2];/* Expression: range
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
+                                             */
   real_T Channel0Controlsignaltomotor_e1[2];/* Computed Parameter: Channel0Controlsignaltomotor_e1
-                                             * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                              */
   real_T Channel0Controlsignaltomotort_d;/* Expression: simul
-                                          * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                          * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                           */
   real_T Channel0Controlsignaltomotor_cz[2];/* Computed Parameter: Channel0Controlsignaltomotor_cz
-                                             * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                              */
-  real_T Channel0Controlsignaltomotort_n;/* Expression: reset
-                                          * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
-                                          */
+  real_T Channel0Controlsignaltomotort_n[2];/* Expression: reset
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
+                                             */
   real_T Channel0Controlsignaltomotort_l[2];/* Computed Parameter: Channel0Controlsignaltomotort_l
-                                             * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                              */
-  real_T Channel0Controlsignaltomotort_g;/* Expression: initValue
-                                          * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
-                                          */
+  real_T Channel0Controlsignaltomotort_g[2];/* Expression: initValue
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
+                                             */
   real_T Channel0Controlsignaltomotort_b[2];/* Computed Parameter: Channel0Controlsignaltomotort_b
-                                             * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                              */
   real_T Channel0Controlsignaltomotort_f;/* Expression: sampleTime
-                                          * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                          * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                           */
   real_T Channel0Controlsignaltomotort_a[2];/* Computed Parameter: Channel0Controlsignaltomotort_a
-                                             * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                              */
   real_T Channel0Controlsignaltomotor_gv;/* Expression: pciBus
-                                          * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                          * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                           */
   real_T Channel0Controlsignaltomotor_lv[2];/* Computed Parameter: Channel0Controlsignaltomotor_lv
-                                             * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                             * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                              */
   real_T Channel0Controlsignaltomotor_gp;/* Expression: pciSlot
-                                          * Referenced by: '<S3>/Channel 0 -Control signal to  motor through amplifier '
+                                          * Referenced by: '<S4>/Channel 0 -Control signal to  motor through amplifier '
                                           */
   real_T Integrator5_IC;               /* Expression: 0
-                                        * Referenced by: '<S4>/Integrator5'
+                                        * Referenced by: '<S5>/Integrator5'
                                         */
   real_T BackemfKe1_Gain;              /* Expression: 0.0274
-                                        * Referenced by: '<S4>/Back emf Ke1'
+                                        * Referenced by: '<S5>/Back emf Ke1'
                                         */
   real_T Dampingb1_Gain;               /* Expression: 3.5077E-6
-                                        * Referenced by: '<S4>/Damping b1'
+                                        * Referenced by: '<S5>/Damping b1'
                                         */
   real_T Integrator1_IC_j;             /* Expression: 0
-                                        * Referenced by: '<S4>/Integrator1'
+                                        * Referenced by: '<S5>/Integrator1'
                                         */
   real_T GainKt2_Gain;                 /* Expression: 0.0274
-                                        * Referenced by: '<S4>/Gain Kt2'
+                                        * Referenced by: '<S5>/Gain Kt2'
                                         */
   real_T GainKt3_Gain;                 /* Expression: 1/(3.2284E-6)
-                                        * Referenced by: '<S4>/Gain Kt3'
+                                        * Referenced by: '<S5>/Gain Kt3'
                                         */
   real_T ResistanceR1_Gain;            /* Expression: 4
-                                        * Referenced by: '<S4>/Resistance R1'
+                                        * Referenced by: '<S5>/Resistance R1'
                                         */
   real_T Inductance_Gain;              /* Expression: 1/(1E-2)
-                                        * Referenced by: '<S4>/Inductance'
+                                        * Referenced by: '<S5>/Inductance'
+                                        */
+  real_T Q4AD_P1_Size[2];              /* Computed Parameter: Q4AD_P1_Size
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P1;                      /* Expression: boardtype
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P2_Size[2];              /* Computed Parameter: Q4AD_P2_Size
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P2;                      /* Expression: channel
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P3_Size[2];              /* Computed Parameter: Q4AD_P3_Size
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P3;                      /* Expression: index03
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P4_Size[2];              /* Computed Parameter: Q4AD_P4_Size
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P5_Size[2];              /* Computed Parameter: Q4AD_P5_Size
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P5;                      /* Expression: sampleTime
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P6_Size[2];              /* Computed Parameter: Q4AD_P6_Size
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P6;                      /* Expression: pciBus
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P7_Size[2];              /* Computed Parameter: Q4AD_P7_Size
+                                        * Referenced by: '<S1>/Q4 AD'
+                                        */
+  real_T Q4AD_P7;                      /* Expression: pciSlot
+                                        * Referenced by: '<S1>/Q4 AD'
                                         */
 };
 
@@ -1142,12 +1191,12 @@ struct tag_RTM_Project3_T {
   struct {
     RTWSfcnInfo sfcnInfo;
     time_T *taskTimePtrs[2];
-    SimStruct childSFunctions[2];
-    SimStruct *childSFunctionPtrs[2];
-    struct _ssBlkInfo2 blkInfo2[2];
-    struct _ssSFcnModelMethods2 methods2[2];
-    struct _ssSFcnModelMethods3 methods3[2];
-    struct _ssStatesInfo2 statesInfo2[2];
+    SimStruct childSFunctions[3];
+    SimStruct *childSFunctionPtrs[3];
+    struct _ssBlkInfo2 blkInfo2[3];
+    struct _ssSFcnModelMethods2 methods2[3];
+    struct _ssSFcnModelMethods3 methods3[3];
+    struct _ssStatesInfo2 statesInfo2[3];
     struct {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
@@ -1163,13 +1212,25 @@ struct tag_RTM_Project3_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
+      struct _ssPortInputs inputPortInfo[2];
       real_T const *UPtrs0[1];
+      real_T const *UPtrs1[1];
       uint_T attribs[9];
       mxArray *params[9];
       struct _ssDWorkRecord dWork[2];
       struct _ssDWorkAuxRecord dWorkAux[2];
     } Sfcn1;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      uint_T attribs[7];
+      mxArray *params[7];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
+    } Sfcn2;
   } NonInlinedSFcns;
 
   /*
@@ -1332,13 +1393,14 @@ extern RT_MODEL_Project3_T *const Project3_M;
  *
  * '<Root>' : 'Project3'
  * '<S1>'   : 'Project3/Subsystem'
- * '<S2>'   : 'Project3/Subsystem/Data Display'
- * '<S3>'   : 'Project3/Subsystem/Real motor'
- * '<S4>'   : 'Project3/Subsystem/Simulated motor'
- * '<S5>'   : 'Project3/Subsystem/error signal'
- * '<S6>'   : 'Project3/Subsystem/input side switching logic'
- * '<S7>'   : 'Project3/Subsystem/motor position'
- * '<S8>'   : 'Project3/Subsystem/setpoint'
- * '<S9>'   : 'Project3/Subsystem/switching logic'
+ * '<S2>'   : 'Project3/Subsystem/Compare To Constant'
+ * '<S3>'   : 'Project3/Subsystem/Data Display'
+ * '<S4>'   : 'Project3/Subsystem/Real motor'
+ * '<S5>'   : 'Project3/Subsystem/Simulated motor'
+ * '<S6>'   : 'Project3/Subsystem/error signal'
+ * '<S7>'   : 'Project3/Subsystem/input side switching logic'
+ * '<S8>'   : 'Project3/Subsystem/motor position'
+ * '<S9>'   : 'Project3/Subsystem/setpoint'
+ * '<S10>'  : 'Project3/Subsystem/switching logic'
  */
 #endif                                 /* RTW_HEADER_Project3_h_ */

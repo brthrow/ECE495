@@ -3,9 +3,9 @@
  *
  * Code generation for model "Project3".
  *
- * Model version              : 1.89
+ * Model version              : 1.103
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Wed Mar 15 17:53:18 2017
+ * C source code generated on : Mon Apr 17 14:47:16 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -152,38 +152,38 @@ void Project3_output(void)
     Project3_Y.setpoint_Out = Project3_B.Setpoint;
   }
 
-  /* Integrator: '<S4>/Integrator6' */
+  /* Integrator: '<S5>/Integrator6' */
   Project3_B.Integrator6 = Project3_X.Integrator6_CSTATE;
 
-  /* Product: '<S9>/Product2' incorporates:
+  /* Product: '<S10>/Product2' incorporates:
    *  Constant: '<S1>/1 - Use simulated motor 0 - Use real motor'
    */
   Project3_B.Product2 = Project3_B.Integrator6 *
     Project3_P.Usesimulatedmotor0Userealmotor_;
   if (rtmIsMajorTimeStep(Project3_M)) {
-    /* Logic: '<S9>/complement the input1' incorporates:
+    /* Logic: '<S10>/complement the input1' incorporates:
      *  Constant: '<S1>/1 - Use simulated motor 0 - Use real motor'
      */
     Project3_B.complementtheinput1 =
       !(Project3_P.Usesimulatedmotor0Userealmotor_ != 0.0);
 
-    /* Level2 S-Function Block: '<S3>/Channel 0 of  Encoder Inputs ' (encquanserq8) */
+    /* Level2 S-Function Block: '<S4>/Channel 0 of  Encoder Inputs ' (encquanserq8) */
     {
       SimStruct *rts = Project3_M->childSfunctions[0];
       sfcnOutputs(rts, 1);
     }
 
-    /* Gain: '<S3>/angular_position =  [relative_count//COUNTS_PER_REV] *360 degrees' */
+    /* Gain: '<S4>/angular_position =  [relative_count//COUNTS_PER_REV] *360 degrees' */
     Project3_B.angular_positionrelative_countC =
       Project3_P.angular_positionrelative_countC *
       Project3_B.Channel0ofEncoderInputs;
 
-    /* Product: '<S9>/Product3' */
+    /* Product: '<S10>/Product3' */
     Project3_B.Product3 = (real_T)Project3_B.complementtheinput1 *
       Project3_B.angular_positionrelative_countC;
   }
 
-  /* Sum: '<S9>/Sum2' */
+  /* Sum: '<S10>/Sum2' */
   Project3_B.Sum2 = Project3_B.Product2 + Project3_B.Product3;
 
   /* Sum: '<S1>/Sum1' */
@@ -195,17 +195,20 @@ void Project3_output(void)
   /* Outport: '<Root>/motorPos_Out' */
   Project3_Y.motorPos_Out = Project3_B.Sum2;
 
-  /* ok to acquire for <S2>/S-Function */
+  /* ok to acquire for <S3>/S-Function */
   Project3_DW.SFunction_IWORK.AcquireOK = 1;
 
-  /* ok to acquire for <S5>/S-Function */
+  /* ok to acquire for <S6>/S-Function */
   Project3_DW.SFunction_IWORK_i.AcquireOK = 1;
 
-  /* ok to acquire for <S7>/S-Function */
+  /* ok to acquire for <S8>/S-Function */
   Project3_DW.SFunction_IWORK_it.AcquireOK = 1;
   if (rtmIsMajorTimeStep(Project3_M)) {
-    /* ok to acquire for <S8>/S-Function */
+    /* ok to acquire for <S9>/S-Function */
     Project3_DW.SFunction_IWORK_n.AcquireOK = 1;
+
+    /* Constant: '<S1>/Constant' */
+    Project3_B.Constant = Project3_P.Constant_Value_d;
   }
 
   /* Derivative: '<S1>/Derivative1' */
@@ -250,7 +253,7 @@ void Project3_output(void)
   /* Gain: '<S1>/Kp' */
   Project3_B.Kp = Project3_P.Kp_Gain * Project3_B.ErrorSignal;
   if (rtmIsMajorTimeStep(Project3_M)) {
-    /* Logic: '<S6>/complement the input' incorporates:
+    /* Logic: '<S7>/complement the input' incorporates:
      *  Constant: '<S1>/1 - Use simulated motor 0 - Use real motor'
      */
     Project3_B.complementtheinput = !(Project3_P.Usesimulatedmotor0Userealmotor_
@@ -260,10 +263,10 @@ void Project3_output(void)
   /* Sum: '<S1>/Sum4' */
   Project3_B.Sum4 = (Project3_B.Kp + Project3_B.Kd) + Project3_B.Ki;
 
-  /* Product: '<S6>/Product1' */
+  /* Product: '<S7>/Product1' */
   Project3_B.Product1 = (real_T)Project3_B.complementtheinput * Project3_B.Sum4;
 
-  /* Saturate: '<S3>/Saturation' */
+  /* Saturate: '<S4>/Saturation' */
   lastTime = Project3_B.Product1;
   u1 = Project3_P.Saturation_LowerSat;
   u2 = Project3_P.Saturation_UpperSat;
@@ -275,52 +278,71 @@ void Project3_output(void)
     Project3_B.Saturation = lastTime;
   }
 
-  /* End of Saturate: '<S3>/Saturation' */
+  /* End of Saturate: '<S4>/Saturation' */
   if (rtmIsMajorTimeStep(Project3_M)) {
-    /* Level2 S-Function Block: '<S3>/Channel 0 -Control signal to  motor through amplifier ' (daquanserq8) */
+    /* Level2 S-Function Block: '<S4>/Channel 0 -Control signal to  motor through amplifier ' (daquanserq8) */
     {
       SimStruct *rts = Project3_M->childSfunctions[1];
       sfcnOutputs(rts, 1);
     }
   }
 
-  /* Integrator: '<S4>/Integrator5' */
+  /* Integrator: '<S5>/Integrator5' */
   Project3_B.Integrator5 = Project3_X.Integrator5_CSTATE;
 
-  /* Gain: '<S4>/Back emf Ke1' */
+  /* Gain: '<S5>/Back emf Ke1' */
   Project3_B.BackemfKe1 = Project3_P.BackemfKe1_Gain * Project3_B.Integrator5;
 
-  /* Gain: '<S4>/Damping b1' */
+  /* Gain: '<S5>/Damping b1' */
   Project3_B.Dampingb1 = Project3_P.Dampingb1_Gain * Project3_B.Integrator5;
 
-  /* Integrator: '<S4>/Integrator1' */
+  /* Integrator: '<S5>/Integrator1' */
   Project3_B.Integrator1_h = Project3_X.Integrator1_CSTATE_i;
 
-  /* Gain: '<S4>/Gain Kt2' */
+  /* Gain: '<S5>/Gain Kt2' */
   Project3_B.GainKt2 = Project3_P.GainKt2_Gain * Project3_B.Integrator1_h;
 
-  /* Sum: '<S4>/Sum2' */
+  /* Sum: '<S5>/Sum2' */
   Project3_B.Sum2_e = Project3_B.GainKt2 - Project3_B.Dampingb1;
 
-  /* Gain: '<S4>/Gain Kt3' */
+  /* Gain: '<S5>/Gain Kt3' */
   Project3_B.GainKt3 = Project3_P.GainKt3_Gain * Project3_B.Sum2_e;
 
-  /* Product: '<S6>/Product' incorporates:
+  /* Product: '<S7>/Product' incorporates:
    *  Constant: '<S1>/1 - Use simulated motor 0 - Use real motor'
    */
   Project3_B.Product = Project3_B.Sum4 *
     Project3_P.Usesimulatedmotor0Userealmotor_;
 
-  /* Gain: '<S4>/Resistance R1' */
+  /* Gain: '<S5>/Resistance R1' */
   Project3_B.ResistanceR1 = Project3_P.ResistanceR1_Gain *
     Project3_B.Integrator1_h;
 
-  /* Sum: '<S4>/Sum1' */
+  /* Sum: '<S5>/Sum1' */
   Project3_B.Sum1 = (Project3_B.Product - Project3_B.BackemfKe1) -
     Project3_B.ResistanceR1;
 
-  /* Gain: '<S4>/Inductance' */
+  /* Gain: '<S5>/Inductance' */
   Project3_B.Inductance = Project3_P.Inductance_Gain * Project3_B.Sum1;
+  if (rtmIsMajorTimeStep(Project3_M)) {
+    /* Level2 S-Function Block: '<S1>/Q4 AD' (adquanserq8) */
+    {
+      SimStruct *rts = Project3_M->childSfunctions[2];
+      sfcnOutputs(rts, 1);
+    }
+
+    /* RelationalOperator: '<S2>/Compare' incorporates:
+     *  Constant: '<S2>/Constant'
+     */
+    Project3_B.Compare = (Project3_B.Q4AD > Project3_P.CompareToConstant_const);
+
+    /* Stop: '<S1>/Stop Simulation' */
+    if (Project3_B.Compare) {
+      rtmSetStopRequested(Project3_M, 1);
+    }
+
+    /* End of Stop: '<S1>/Stop Simulation' */
+  }
 }
 
 /* Model update function */
@@ -391,23 +413,23 @@ void Project3_derivatives(void)
   XDot_Project3_T *_rtXdot;
   _rtXdot = ((XDot_Project3_T *) Project3_M->ModelData.derivs);
 
-  /* Derivatives for Integrator: '<S4>/Integrator6' */
+  /* Derivatives for Integrator: '<S5>/Integrator6' */
   _rtXdot->Integrator6_CSTATE = Project3_B.Integrator5;
 
   /* Derivatives for Integrator: '<S1>/Integrator1' */
   _rtXdot->Integrator1_CSTATE = Project3_B.ErrorSignal;
 
-  /* Derivatives for Integrator: '<S4>/Integrator5' */
+  /* Derivatives for Integrator: '<S5>/Integrator5' */
   _rtXdot->Integrator5_CSTATE = Project3_B.GainKt3;
 
-  /* Derivatives for Integrator: '<S4>/Integrator1' */
+  /* Derivatives for Integrator: '<S5>/Integrator1' */
   _rtXdot->Integrator1_CSTATE_i = Project3_B.Inductance;
 }
 
 /* Model initialize function */
 void Project3_initialize(void)
 {
-  /* Level2 S-Function Block: '<S3>/Channel 0 of  Encoder Inputs ' (encquanserq8) */
+  /* Level2 S-Function Block: '<S4>/Channel 0 of  Encoder Inputs ' (encquanserq8) */
   {
     SimStruct *rts = Project3_M->childSfunctions[0];
     sfcnStart(rts);
@@ -415,7 +437,7 @@ void Project3_initialize(void)
       return;
   }
 
-  /* S-Function Block: <S2>/S-Function (scblock) */
+  /* S-Function Block: <S3>/S-Function (scblock) */
   {
     int i;
     if ((i = rl32eScopeExists(3)) == 0) {
@@ -451,7 +473,7 @@ void Project3_initialize(void)
     }
   }
 
-  /* S-Function Block: <S5>/S-Function (scblock) */
+  /* S-Function Block: <S6>/S-Function (scblock) */
   {
     int i;
     if ((i = rl32eScopeExists(2)) == 0) {
@@ -479,7 +501,7 @@ void Project3_initialize(void)
     }
   }
 
-  /* S-Function Block: <S7>/S-Function (scblock) */
+  /* S-Function Block: <S8>/S-Function (scblock) */
   {
     int i;
     if ((i = rl32eScopeExists(7)) == 0) {
@@ -507,7 +529,7 @@ void Project3_initialize(void)
     }
   }
 
-  /* S-Function Block: <S8>/S-Function (scblock) */
+  /* S-Function Block: <S9>/S-Function (scblock) */
   {
     int i;
     if ((i = rl32eScopeExists(1)) == 0) {
@@ -535,7 +557,10 @@ void Project3_initialize(void)
     }
   }
 
-  /* Level2 S-Function Block: '<S3>/Channel 0 -Control signal to  motor through amplifier ' (daquanserq8) */
+  /* Start for Constant: '<S1>/Constant' */
+  Project3_B.Constant = Project3_P.Constant_Value_d;
+
+  /* Level2 S-Function Block: '<S4>/Channel 0 -Control signal to  motor through amplifier ' (daquanserq8) */
   {
     SimStruct *rts = Project3_M->childSfunctions[1];
     sfcnStart(rts);
@@ -543,7 +568,15 @@ void Project3_initialize(void)
       return;
   }
 
-  /* InitializeConditions for Integrator: '<S4>/Integrator6' */
+  /* Level2 S-Function Block: '<S1>/Q4 AD' (adquanserq8) */
+  {
+    SimStruct *rts = Project3_M->childSfunctions[2];
+    sfcnStart(rts);
+    if (ssGetErrorStatus(rts) != (NULL))
+      return;
+  }
+
+  /* InitializeConditions for Integrator: '<S5>/Integrator6' */
   Project3_X.Integrator6_CSTATE = Project3_P.Integrator6_IC;
 
   /* InitializeConditions for Derivative: '<S1>/Derivative1' */
@@ -553,25 +586,31 @@ void Project3_initialize(void)
   /* InitializeConditions for Integrator: '<S1>/Integrator1' */
   Project3_X.Integrator1_CSTATE = Project3_P.Integrator1_IC;
 
-  /* InitializeConditions for Integrator: '<S4>/Integrator5' */
+  /* InitializeConditions for Integrator: '<S5>/Integrator5' */
   Project3_X.Integrator5_CSTATE = Project3_P.Integrator5_IC;
 
-  /* InitializeConditions for Integrator: '<S4>/Integrator1' */
+  /* InitializeConditions for Integrator: '<S5>/Integrator1' */
   Project3_X.Integrator1_CSTATE_i = Project3_P.Integrator1_IC_j;
 }
 
 /* Model terminate function */
 void Project3_terminate(void)
 {
-  /* Level2 S-Function Block: '<S3>/Channel 0 of  Encoder Inputs ' (encquanserq8) */
+  /* Level2 S-Function Block: '<S4>/Channel 0 of  Encoder Inputs ' (encquanserq8) */
   {
     SimStruct *rts = Project3_M->childSfunctions[0];
     sfcnTerminate(rts);
   }
 
-  /* Level2 S-Function Block: '<S3>/Channel 0 -Control signal to  motor through amplifier ' (daquanserq8) */
+  /* Level2 S-Function Block: '<S4>/Channel 0 -Control signal to  motor through amplifier ' (daquanserq8) */
   {
     SimStruct *rts = Project3_M->childSfunctions[1];
+    sfcnTerminate(rts);
+  }
+
+  /* Level2 S-Function Block: '<S1>/Q4 AD' (adquanserq8) */
+  {
+    SimStruct *rts = Project3_M->childSfunctions[2];
     sfcnTerminate(rts);
   }
 }
@@ -902,20 +941,22 @@ RT_MODEL_Project3_T *Project3(void)
     rtssSetSolverInfoPtr(sfcnInfo, &Project3_M->solverInfoPtr);
   }
 
-  Project3_M->Sizes.numSFcns = (2);
+  Project3_M->Sizes.numSFcns = (3);
 
   /* register each child */
   {
     (void) memset((void *)&Project3_M->NonInlinedSFcns.childSFunctions[0], 0,
-                  2*sizeof(SimStruct));
+                  3*sizeof(SimStruct));
     Project3_M->childSfunctions =
       (&Project3_M->NonInlinedSFcns.childSFunctionPtrs[0]);
     Project3_M->childSfunctions[0] =
       (&Project3_M->NonInlinedSFcns.childSFunctions[0]);
     Project3_M->childSfunctions[1] =
       (&Project3_M->NonInlinedSFcns.childSFunctions[1]);
+    Project3_M->childSfunctions[2] =
+      (&Project3_M->NonInlinedSFcns.childSFunctions[2]);
 
-    /* Level2 S-Function Block: Project3/<S3>/Channel 0 of  Encoder Inputs  (encquanserq8) */
+    /* Level2 S-Function Block: Project3/<S4>/Channel 0 of  Encoder Inputs  (encquanserq8) */
     {
       SimStruct *rts = Project3_M->childSfunctions[0];
 
@@ -1048,7 +1089,7 @@ RT_MODEL_Project3_T *Project3(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Project3/<S3>/Channel 0 -Control signal to  motor through amplifier  (daquanserq8) */
+    /* Level2 S-Function Block: Project3/<S4>/Channel 0 -Control signal to  motor through amplifier  (daquanserq8) */
     {
       SimStruct *rts = Project3_M->childSfunctions[1];
 
@@ -1088,7 +1129,7 @@ RT_MODEL_Project3_T *Project3(void)
 
       /* inputs */
       {
-        _ssSetNumInputPorts(rts, 1);
+        _ssSetNumInputPorts(rts, 2);
         ssSetPortInfoForInputs(rts,
           &Project3_M->NonInlinedSFcns.Sfcn1.inputPortInfo[0]);
 
@@ -1100,6 +1141,16 @@ RT_MODEL_Project3_T *Project3(void)
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
+        }
+
+        /* port 1 */
+        {
+          real_T const **sfcnUPtrs = (real_T const **)
+            &Project3_M->NonInlinedSFcns.Sfcn1.UPtrs1;
+          sfcnUPtrs[0] = &Project3_B.Constant;
+          ssSetInputPortSignalPtrs(rts, 1, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 1, 1);
+          ssSetInputPortWidth(rts, 1, 1);
         }
       }
 
@@ -1180,9 +1231,125 @@ RT_MODEL_Project3_T *Project3(void)
 
       /* Update connectivity flags for each port */
       _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetInputPortConnected(rts, 1, 1);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
+      ssSetInputPortBufferDstPort(rts, 1, -1);
+    }
+
+    /* Level2 S-Function Block: Project3/<S1>/Q4 AD (adquanserq8) */
+    {
+      SimStruct *rts = Project3_M->childSfunctions[2];
+
+      /* timing info */
+      time_T *sfcnPeriod = Project3_M->NonInlinedSFcns.Sfcn2.sfcnPeriod;
+      time_T *sfcnOffset = Project3_M->NonInlinedSFcns.Sfcn2.sfcnOffset;
+      int_T *sfcnTsMap = Project3_M->NonInlinedSFcns.Sfcn2.sfcnTsMap;
+      (void) memset((void*)sfcnPeriod, 0,
+                    sizeof(time_T)*1);
+      (void) memset((void*)sfcnOffset, 0,
+                    sizeof(time_T)*1);
+      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
+      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
+      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
+
+      /* Set up the mdlInfo pointer */
+      {
+        ssSetBlkInfo2Ptr(rts, &Project3_M->NonInlinedSFcns.blkInfo2[2]);
+      }
+
+      ssSetRTWSfcnInfo(rts, Project3_M->sfcnInfo);
+
+      /* Allocate memory of model methods 2 */
+      {
+        ssSetModelMethods2(rts, &Project3_M->NonInlinedSFcns.methods2[2]);
+      }
+
+      /* Allocate memory of model methods 3 */
+      {
+        ssSetModelMethods3(rts, &Project3_M->NonInlinedSFcns.methods3[2]);
+      }
+
+      /* Allocate memory for states auxilliary information */
+      {
+        ssSetStatesInfo2(rts, &Project3_M->NonInlinedSFcns.statesInfo2[2]);
+      }
+
+      /* outputs */
+      {
+        ssSetPortInfoForOutputs(rts,
+          &Project3_M->NonInlinedSFcns.Sfcn2.outputPortInfo[0]);
+        _ssSetNumOutputPorts(rts, 1);
+
+        /* port 0 */
+        {
+          _ssSetOutputPortNumDimensions(rts, 0, 1);
+          ssSetOutputPortWidth(rts, 0, 1);
+          ssSetOutputPortSignal(rts, 0, ((real_T *) &Project3_B.Q4AD));
+        }
+      }
+
+      /* path info */
+      ssSetModelName(rts, "Q4 AD");
+      ssSetPath(rts, "Project3/Subsystem/Q4 AD");
+      ssSetRTModel(rts,Project3_M);
+      ssSetParentSS(rts, (NULL));
+      ssSetRootSS(rts, rts);
+      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
+
+      /* parameters */
+      {
+        mxArray **sfcnParams = (mxArray **)
+          &Project3_M->NonInlinedSFcns.Sfcn2.params;
+        ssSetSFcnParamsCount(rts, 7);
+        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
+        ssSetSFcnParam(rts, 0, (mxArray*)Project3_P.Q4AD_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)Project3_P.Q4AD_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)Project3_P.Q4AD_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)Project3_P.Q4AD_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)Project3_P.Q4AD_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)Project3_P.Q4AD_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)Project3_P.Q4AD_P7_Size);
+      }
+
+      /* work vectors */
+      ssSetIWork(rts, (int_T *) &Project3_DW.Q4AD_IWORK[0]);
+
+      {
+        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
+          &Project3_M->NonInlinedSFcns.Sfcn2.dWork;
+        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
+          &Project3_M->NonInlinedSFcns.Sfcn2.dWorkAux;
+        ssSetSFcnDWork(rts, dWorkRecord);
+        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
+        _ssSetNumDWork(rts, 1);
+
+        /* IWORK */
+        ssSetDWorkWidth(rts, 0, 2);
+        ssSetDWorkDataType(rts, 0,SS_INTEGER);
+        ssSetDWorkComplexSignal(rts, 0, 0);
+        ssSetDWork(rts, 0, &Project3_DW.Q4AD_IWORK[0]);
+      }
+
+      /* registration */
+      adquanserq8(rts);
+      sfcnInitializeSizes(rts);
+      sfcnInitializeSampleTimes(rts);
+
+      /* adjust sample time */
+      ssSetSampleTime(rts, 0, 0.001);
+      ssSetOffsetTime(rts, 0, 0.0);
+      sfcnTsMap[0] = 1;
+
+      /* set compiled values of dynamic vector attributes */
+      ssSetNumNonsampledZCs(rts, 0);
+
+      /* Update connectivity flags for each port */
+      _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortBeingMerged(rts, 0, 0);
+
+      /* Update the BufferDstPort flags for each input port */
     }
   }
 
@@ -1193,9 +1360,9 @@ RT_MODEL_Project3_T *Project3(void)
   Project3_M->Sizes.numU = (0);        /* Number of model inputs */
   Project3_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   Project3_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  Project3_M->Sizes.numBlocks = (40);  /* Number of blocks */
-  Project3_M->Sizes.numBlockIO = (30); /* Number of block outputs */
-  Project3_M->Sizes.numBlockPrms = (83);/* Sum of parameter "widths" */
+  Project3_M->Sizes.numBlocks = (46);  /* Number of blocks */
+  Project3_M->Sizes.numBlockIO = (33); /* Number of block outputs */
+  Project3_M->Sizes.numBlockPrms = (109);/* Sum of parameter "widths" */
   return Project3_M;
 }
 

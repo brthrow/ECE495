@@ -67,8 +67,8 @@ ALT_MATLAB_ROOT = C:\PROGRA~1\MATLAB\R2015a
 MATLAB_BIN      = C:\Program Files\MATLAB\R2015a\bin
 ALT_MATLAB_BIN  = C:\PROGRA~1\MATLAB\R2015a\bin
 MASTER_ANCHOR_DIR = 
-START_DIR       = C:\Users\jms6\Documents\GitHub\ECE495\project3
-S_FUNCTIONS     = encquanserq8.c daquanserq8.c
+START_DIR       = C:\Users\blake\Desktop\ECE495\project3
+S_FUNCTIONS     = encquanserq8.c daquanserq8.c adquanserq8.c
 S_FUNCTIONS_LIB = 
 NUMST           = 2
 TID01EQ         = 1
@@ -76,7 +76,7 @@ NCSTATES        = 4
 BUILDARGS       =  EXT_MODE=1 ISPROTECTINGMODEL=NOTPROTECTING
 MULTITASKING    = 0
 EXT_MODE        = 0
-MEX_OPT_FILE    = -f "C:\Users\jms6\AppData\Roaming\MathWorks\MATLAB\R2015a\mex_C_win64.xml"
+MEX_OPT_FILE    = -f "C:\Users\blake\AppData\Roaming\MathWorks\MATLAB\R2015a\mex_C_win64.xml"
 
 MODELREFS       = 
 SHARED_SRC      = 

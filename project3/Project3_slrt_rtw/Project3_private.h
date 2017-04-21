@@ -3,9 +3,9 @@
  *
  * Code generation for model "Project3".
  *
- * Model version              : 1.89
+ * Model version              : 1.103
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Wed Mar 15 17:53:18 2017
+ * C source code generated on : Mon Apr 17 14:47:16 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -29,6 +29,7 @@ extern const char *getRefMdlPath(const char *refMdl);
 extern int getRefMdlSignalNumber(const char *mdlBlock, const char *signalName);
 extern void encquanserq8(SimStruct *rts);
 extern void daquanserq8(SimStruct *rts);
+extern void adquanserq8(SimStruct *rts);
 
 /* private model entry point functions */
 extern void Project3_derivatives(void);

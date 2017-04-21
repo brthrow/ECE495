@@ -12,6 +12,6 @@ const xpc_SigMappingInfo xpcMMI[] =
       "",
       "Project3",
       0,
-      31,
+      34,
     },
   };
